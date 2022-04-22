@@ -28,3 +28,7 @@ Details can be revealed on demand during further contact, an updated document mu
 
 - [Docker](https://www.docker.com/)
 - [Pandoc - Docker container](https://hub.docker.com/r/pandoc/latex)
+- [Spring](https://spring.io/)
+  - [spring initializr](https://start.spring.io/)
+  - Spring Security
+- [Lombok](https://projectlombok.org/)
