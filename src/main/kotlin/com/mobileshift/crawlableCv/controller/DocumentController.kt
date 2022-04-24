@@ -12,9 +12,9 @@ class DocumentController(private val fileRepository: FileServiceImpl) {
     @GetMapping("/{token}")
     fun getDocument(@PathVariable token: String): ResponseEntity<UrlResource> {
         val file = fileRepository.loadFile(token)
-        return ResponseEntity.ok()
+        val response = ResponseEntity.ok()
             .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.resource.filename + "\"")
-            .header(HttpHeaders.CONTENT_TYPE, file.mimeType)
-            .body(file.resource)
+        file.mimeType?.let { response.header(HttpHeaders.CONTENT_TYPE, file.mimeType) }
+        return response.body(file.resource)
     }
 }

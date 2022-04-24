@@ -21,8 +21,9 @@ Details can be revealed on demand during further contact, an updated document mu
 
 ## Getting started
 
-- Make sure [Docker](https://www.docker.com/get-started/) is running 
-- 
+- Make sure [Docker](https://www.docker.com/get-started/) is running
+- Build project (bootJar) / Download binary
+- Run container (Dockerfile run-config)
 
 ## Dependencies
 
