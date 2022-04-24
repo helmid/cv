@@ -1,20 +1,41 @@
 package com.mobileshift.crawlableCv.controller
 
-import com.mobileshift.crawlableCv.service.FileServiceImpl
+import com.mobileshift.crawlableCv.model.MimeTypedResource
+import com.mobileshift.crawlableCv.service.FileService
 import org.springframework.core.io.UrlResource
 import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.multipart.MultipartFile
+import util.Path
 
 @RestController
-@RequestMapping("/api/document")
-class DocumentController(private val fileRepository: FileServiceImpl) {
-    @GetMapping("/{token}")
+@RequestMapping(Path.DOCUMENT)
+class DocumentController(private val fileRepository: FileService) {
+    @GetMapping(Path.GET_DOCUMENT_TOKEN)
+
     fun getDocument(@PathVariable token: String): ResponseEntity<UrlResource> {
-        val file = fileRepository.loadFile(token)
+        return makeUrlResponse(fileRepository.load(token))
+    }
+
+    @PostMapping(Path.POST_MAKE_DOCUMENT)
+    fun buildDocument(@RequestBody source: MultipartFile): ResponseEntity<UrlResource> {
+        return makeUrlResponse(fileRepository.build(source))
+    }
+
+    private fun makeUrlResponse(file: MimeTypedResource?): ResponseEntity<UrlResource> {
+        if (file?.resource == null) {
+            return ResponseEntity.badRequest().build()
+        }
         val response = ResponseEntity.ok()
-            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.resource.filename + "\"")
+        response.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.resource.filename + "\"")
         file.mimeType?.let { response.header(HttpHeaders.CONTENT_TYPE, file.mimeType) }
-        return response.body(file.resource)
+        response.body(file.resource)
+        return response.build()
+    }
+
+    @ExceptionHandler
+    fun handleException(): ResponseEntity<Any> {
+        return ResponseEntity.internalServerError().build()
     }
 }

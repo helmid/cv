@@ -3,10 +3,11 @@ package com.mobileshift.crawlableCv.service
 import com.mobileshift.crawlableCv.model.MimeTypedResource
 import org.springframework.core.io.UrlResource
 import org.springframework.stereotype.Service
-import java.io.FileNotFoundException
+import org.springframework.web.multipart.MultipartFile
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
+
 
 @Service
 class FileServiceImpl : FileService {
@@ -18,13 +19,27 @@ class FileServiceImpl : FileService {
         }
     }
 
-    override fun loadFile(token: String): MimeTypedResource {
+    override fun load(token: String): MimeTypedResource? {
         val file = basePath.resolve(token)
         val resource = MimeTypedResource(Files.probeContentType(file), UrlResource(file.toUri()))
-        if (resource.resource.exists() || resource.resource.isReadable) {
+        if (resource.resource != null && (resource.resource.exists() || resource.resource.isReadable)) {
             return resource
         } else {
-            throw FileNotFoundException()
+            return null
         }
+    }
+
+    override fun build(file: MultipartFile): MimeTypedResource? {
+        val name = file.originalFilename ?: file.name
+        val path: Path
+        try {
+            path = basePath.resolve(name)
+            Files.copy(file.inputStream, path)
+        } catch (e: Exception) {
+            return null
+        }
+        val result = load(name)
+        //Files.delete(path)
+        return result
     }
 }
