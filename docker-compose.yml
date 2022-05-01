@@ -1,0 +1,15 @@
+version: '2'
+services:
+  cv-server:
+    container_name: cv-service
+    build:
+      context: /
+      dockerfile: Dockerfile
+    image: cvapp:latest
+    ports:
+      - 8080:8080
+    networks:
+      - spring-cloud-network
+networks:
+  spring-cloud-network:
+    driver: bridge

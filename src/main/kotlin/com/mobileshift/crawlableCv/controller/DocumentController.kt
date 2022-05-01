@@ -7,7 +7,7 @@ import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
-import util.Path
+import com.mobileshift.crawlableCv.util.Path
 
 @RestController
 @RequestMapping(Path.DOCUMENT)

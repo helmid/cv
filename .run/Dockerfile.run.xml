@@ -2,8 +2,8 @@
   <configuration default="false" name="Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
     <deployment type="dockerfile">
       <settings>
-        <option name="imageTag" value="cvapp-dev" />
-        <option name="containerName" value="cv-dev" />
+        <option name="imageTag" value="cvapp" />
+        <option name="containerName" value="cvapp" />
         <option name="portBindings">
           <list>
             <DockerPortBindingImpl>
