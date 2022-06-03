@@ -1,4 +1,4 @@
-package com.mobileshift.crawlableCv
+package com.mobileshift.cv
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

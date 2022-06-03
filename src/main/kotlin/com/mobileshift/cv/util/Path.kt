@@ -1,4 +1,4 @@
-package com.mobileshift.crawlableCv.util
+package com.mobileshift.cv.util
 
 class Path {
     companion object {

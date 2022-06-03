@@ -1,6 +1,6 @@
-package com.mobileshift.crawlableCv.service
+package com.mobileshift.cv.service
 
-import com.mobileshift.crawlableCv.model.MimeTypedResource
+import com.mobileshift.cv.model.MimeTypedResource
 import org.springframework.web.multipart.MultipartFile
 
 interface FileService {

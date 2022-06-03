@@ -1,4 +1,4 @@
-package com.mobileshift.crawlableCv.model
+package com.mobileshift.cv.model
 
 import org.springframework.core.io.UrlResource
 

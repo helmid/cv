@@ -1,13 +1,13 @@
-package com.mobileshift.crawlableCv.controller
+package com.mobileshift.cv.controller
 
-import com.mobileshift.crawlableCv.model.MimeTypedResource
-import com.mobileshift.crawlableCv.service.FileService
+import com.mobileshift.cv.model.MimeTypedResource
+import com.mobileshift.cv.service.FileService
 import org.springframework.core.io.UrlResource
 import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
-import com.mobileshift.crawlableCv.util.Path
+import com.mobileshift.cv.util.Path
 
 @RestController
 @RequestMapping(Path.DOCUMENT)
