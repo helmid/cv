@@ -1,1 +1,1 @@
-rootProject.name = "CrawlableCv"
+rootProject.name = "cv"
