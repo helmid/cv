@@ -1,9 +1,9 @@
 package com.mobileshift.cv.service
 
+import com.mobileshift.cv.model.CvDTO
 import com.mobileshift.cv.model.MimeTypedResource
-import org.springframework.web.multipart.MultipartFile
 
-interface FileService {
+interface CvService {
     fun load(token: String): MimeTypedResource?
-    fun build(file: MultipartFile): MimeTypedResource?
+    fun build(cvDTO: CvDTO): MimeTypedResource?
 }
