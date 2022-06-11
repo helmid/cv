@@ -1,8 +1,7 @@
 package com.mobileshift.cv.model.templates.tex.cv1
 
-class Cls {
-    companion object {
-        val clsData = """
+object Cls {
+    val clsData = """
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             % Developer CV
             % LaTeX Class
@@ -211,5 +210,4 @@ class Cls {
             \newcommand{\slashsep}{\hspace{3mm}/\hspace{3mm}}
 
         """.trimIndent()
-    }
 }

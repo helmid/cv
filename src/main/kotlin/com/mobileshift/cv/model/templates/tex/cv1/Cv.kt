@@ -2,12 +2,11 @@ package com.mobileshift.cv.model.templates.tex.cv1
 
 import com.mobileshift.cv.model.CvDTO
 
-class Cv {
-    companion object {
-        fun make(cv: CvDTO): String {
-            val header = Header.make(cv.firstName, cv.lastName, cv.jobTitle, cv.contact)
-            val sections = Section.make(cv.sections)
-            return """
+object Cv {
+    fun make(cv: CvDTO): String {
+        val header = Header.make(cv.firstName, cv.lastName, cv.jobTitle, cv.contact)
+        val sections = Section.make(cv.sections)
+        return """
                 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                 % Developer CV
                 % LaTeX Template
@@ -42,6 +41,5 @@ class Cv {
 
                 \end{document}
             """.trimIndent()
-        }
     }
 }
