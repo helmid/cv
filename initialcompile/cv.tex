@@ -1,0 +1,128 @@
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % Developer CV
+                % LaTeX Template
+                % Version 1.0 (28/1/19)
+                %
+                % This template originates from:
+                % http://www.LaTeXTemplates.com
+                %
+                % Authors:
+                % Jan Vorisek (jan@vorisek.me)
+                % Based on a template by Jan Küster (info@jankuester.com)
+                % Modified for LaTeX Templates by Vel (vel@LaTeXTemplates.com)
+                %
+                % License:
+                % The MIT License (see included LICENSE file)
+                %
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+                %----------------------------------------------------------------------------------------
+                %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+                %----------------------------------------------------------------------------------------
+
+                \documentclass[9pt]{developercv} % Default font size, values from 8-12pt are recommended
+
+                %----------------------------------------------------------------------------------------
+
+                \begin{document}
+
+                \begin{minipage}[t]{0.46\textwidth} 
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+	
+	\colorbox{black}{{\HUGE\textcolor{white}{\textbf{\MakeUppercase{Foo}}}}} % First name
+	
+	\colorbox{black}{{\HUGE\textcolor{white}{\textbf{\MakeUppercase{Bar}}}}} % Last name
+	
+	\vspace{6pt}
+	
+	{\huge Foo bartender} % Career or current job title
+\end{minipage}
+                \begin{minipage}[t]{0.3\textwidth} 
+                	\vspace{-\baselineskip}
+                	\icon{MapMarker}{12}{Planet Earth}\\
+\icon{Mobile}{12}{\href{tel:+00000000000000}{+00 (0)000 00000000}}\\
+
+                \end{minipage}                \begin{minipage}[t]{0.24\textwidth} 
+                	\vspace{-\baselineskip}
+                	\icon{Globe}{12}{\href{https://github.com/helmid/}{Website}}\\
+\icon{Github}{12}{\href{https://github.com/helmid/}{github.com/helmid}}\\
+
+                \end{minipage}
+                
+                                \cvsect{About me section}
+                
+                                \begin{minipage}[t]{0.4\textwidth} 
+                	\vspace{-\baselineskip} % Required for vertically aligning minipages
+                	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                \end{minipage}
+                                \hfill % Whitespace between
+                \begin{minipage}[t]{0.5\textwidth} 
+                	\vspace{-\baselineskip} % Required for vertically aligning minipages
+                	                \begin{barchart}{5.5}
+\baritem{Basic skill 1}{89.0}
+\baritem{Basic skill 2}{73.0}
+\baritem{Basic skill 3}{70.0}
+\baritem{Basic skill 4}{55.0}
+\baritem{Basic skill 5}{40.0}
+\baritem{Basic skill 6}{39.0}
+                \end{barchart}
+                    \vspace{0.5cm}
+\bubbles{4.5/Skill 1, 6.0/Skill 2, 5.15/Skill 3, 3.3/Skill 4, 2.0/Skill 5}
+                \end{minipage}
+                \cvsect{History section}
+
+                \begin{entrylist}
+                	\entry
+    {since 07/2015}
+    {Third Job}
+    {Employer 2}
+    {Same Employer diferent job
+    \newline \texttt{Skill1}\slashsep\texttt{Some longer skill, that needs some space}\slashsep\texttt{Skill3}\slashsep\texttt{Skill4}\slashsep\texttt{SkillThatTakesSomeSpaceInOneLineSoWeCanCheckFormatting}}
+\entry
+    {01/2019 -- 06/2019}
+    {Second Job}
+    {Employer 2}
+    {Gathering more job experience
+    \newline \texttt{Skill}}
+\entry
+    {01/2015 -- 12/2018}
+    {First Job}
+    {Employer 1}
+    {Gathering job experience
+    }
+                \end{entrylist}
+               \cvsect{Education section 1}
+                   
+               \begin{entrylist}
+                   \entry
+{01/2016 -- 02/2016}
+{Some Cert}
+{Some facility}
+{\href{https://github.com/helmid/}{https://github.com/helmid/}}
+               \end{entrylist}
+                \cvsect{Education section 2}
+                    
+                \begin{entrylist}
+                    \entry
+	{2013 -- 2015}
+	{Some more studies}
+	{Some other university}
+	{Some more content}
+\entry
+	{2010 -- 2013}
+	{Some studies}
+	{Some university}
+	{Some content}
+                \end{entrylist}
+                
+                
+                            \begin{minipage}[t]{1.0\textwidth}
+                \vspace{-\baselineskip} % Required for vertically aligning minipages
+                \cvsect{Some more skills}
+                	                \begin{barchart}{3.0}
+\baritem{Test1}{100.0}
+\baritem{Test2}{85.0}
+                \end{barchart}
+            \end{minipage}
+
+                \end{document}
