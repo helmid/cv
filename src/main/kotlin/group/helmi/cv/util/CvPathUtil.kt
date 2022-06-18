@@ -6,9 +6,9 @@ import java.nio.file.Path
 object CvPathUtil {
     private val baseOutputPathName = "output"
     val baseOutputPath = getOutputPath()
-    const val defaultCvFileName = "cv.tex"
     const val defaultClsFileName = "developercv.cls"
     const val pdfFileType = "pdf"
+    const val texFileType = "tex"
 
     fun getOutputPath(components: List<String> = listOf()): Path {
         return FileUtil.getPath(baseOutputPathName, components)

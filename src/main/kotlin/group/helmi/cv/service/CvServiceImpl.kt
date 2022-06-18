@@ -42,13 +42,13 @@ class CvServiceImpl: CvService {
 
     private fun compileTex(id: String, filename: String): String {
         val workingDir = CvPathUtil.getOutputPath(components = listOf(id)).toFile()
-        val command = "pdflatex -shell-escape -halt-on-error $filename "
+        val command = "pdflatex -shell-escape -halt-on-error $filename.${CvPathUtil.texFileType}"
         ProcessUtil.runCommand(command = command, workingDir = workingDir)
-        return "$id/$filename.${CvPathUtil.pdfFileType}"
+        return "$id/$filename"
     }
 
     override fun loadFile(id: String, filename: String): MimeTypedResource? {
-        val resultPath = listOf(id, filename)
+        val resultPath = listOf(id, "$filename.${CvPathUtil.pdfFileType}")
         return FileUtil.pathToMimeTypedResource(CvPathUtil.getOutputPath(components = resultPath))
     }
 
@@ -56,7 +56,7 @@ class CvServiceImpl: CvService {
         val path = CvPathUtil.getOutputPath(components = pathComponents)
         path.createDirectories()
         val filePathComponents = pathComponents.toMutableList()
-        filePathComponents.add(filename)
+        filePathComponents.add("$filename.${CvPathUtil.texFileType}")
         val clsPathComponents = pathComponents.toMutableList()
         clsPathComponents.add(CvPathUtil.defaultClsFileName)
         val cvFile = CvPathUtil.getOutputPath(components = filePathComponents).toFile()
