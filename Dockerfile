@@ -12,13 +12,14 @@ RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python \
 RUN tlmgr update --self \
 && tlmgr install texliveonfly
 
-
+# Install required packages, to avoid executing `texliveonfly` during document creation
 WORKDIR /
 RUN mkdir test
 ADD initialcompile test
 RUN cd test && texliveonfly cv.tex
 RUN cd / && rm -R test
 
+# Copy app, expose port and set entrypoint
 ENV APP_HOME=/usr/app/
 WORKDIR $APP_HOME
 COPY build/libs/*.jar app.jar
