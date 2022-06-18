@@ -1,4 +1,4 @@
 object App {
-    val group = "com.mobile-shift"
-    val version = "0.0.1-SNAPSHOT"
+    val group = "group.helmi"
+    val version = "1.0.0"
 }
