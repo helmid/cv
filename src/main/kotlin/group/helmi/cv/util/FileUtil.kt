@@ -30,7 +30,7 @@ object FileUtil {
         }
     }
 
-    fun deleteDirectory(directory: File) {
+    fun deleteDirectory(directory: File): String {
         val files = directory.listFiles() ?: arrayOf()
         for (file in files) {
             if (!file.isDirectory) {
@@ -40,9 +40,12 @@ object FileUtil {
             }
         }
         val deleted = directory.delete()
+        var result = "Successfully deleted folder ${directory.absoluteFile}"
         if (!deleted) {
-            logger.error("Could not delete folder ${directory.absoluteFile}")
+            result = "Could not delete folder ${directory.absoluteFile}"
         }
+        logger.error(result)
+        return result
     }
 
     fun pathToMimeTypedResource(path: Path): MimeTypedResource {

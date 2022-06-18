@@ -10,19 +10,15 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping(Path.DOCUMENT)
+@RequestMapping(Path.Document.DOCUMENT_BASE)
 class DocumentController(private val cvService: CvService) {
-    @GetMapping("/test")
-    fun test(): ResponseEntity<String> {
-        return ResponseEntity.ok("Works")
-    }
 
-    @GetMapping(Path.GET_DOCUMENT_TOKEN)
+    @GetMapping(Path.Document.GET_DOCUMENT_BY_TOKEN)
     fun getDocument(@PathVariable token: String): ResponseEntity<UrlResource> {
         return makeUrlResponse(cvService.load(token))
     }
 
-    @PostMapping(Path.POST_MAKE_DOCUMENT)
+    @PostMapping(Path.Document.POST_MAKE_DOCUMENT)
     fun buildDocument(@RequestBody source: CvDTO): ResponseEntity<UrlResource> {
         return makeUrlResponse(cvService.build(source))
     }
