@@ -1,6 +1,6 @@
-package com.mobileshift.cv.mapper
+package group.helmi.cv.mapper
 
-import com.mobileshift.cv.model.templates.TemplateCvMapperImpl
+import group.helmi.cv.model.templates.TemplateCvMapperImpl
 
 object TexCvMapper : TemplateCvMapperImpl() {
     override fun formatString(string: String): String {

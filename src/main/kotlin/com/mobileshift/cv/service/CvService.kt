@@ -1,7 +1,7 @@
-package com.mobileshift.cv.service
+package group.helmi.cv.service
 
-import com.mobileshift.cv.model.CvDTO
-import com.mobileshift.cv.model.MimeTypedResource
+import group.helmi.cv.model.CvDTO
+import group.helmi.cv.model.MimeTypedResource
 
 interface CvService {
     fun load(token: String): MimeTypedResource?

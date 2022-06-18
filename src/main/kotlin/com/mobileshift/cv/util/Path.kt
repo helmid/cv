@@ -1,4 +1,4 @@
-package com.mobileshift.cv.util
+package group.helmi.cv.util
 
 object Path {
     private const val BASE_PATH = "/api"

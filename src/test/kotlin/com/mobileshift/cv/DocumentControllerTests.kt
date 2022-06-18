@@ -1,11 +1,11 @@
-package com.mobileshift.cv
+package group.helmi.cv
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import com.mobileshift.cv.controller.DocumentController
-import com.mobileshift.cv.data.TestCvData
-import com.mobileshift.cv.model.CvDTO
-import com.mobileshift.cv.util.FileUtil
+import group.helmi.cv.controller.DocumentController
+import group.helmi.cv.data.TestCvData
+import group.helmi.cv.model.CvDTO
+import group.helmi.cv.util.FileUtil
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach

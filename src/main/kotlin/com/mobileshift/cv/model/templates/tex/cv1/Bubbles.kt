@@ -1,6 +1,6 @@
-package com.mobileshift.cv.model.templates.tex.cv1
+package group.helmi.cv.model.templates.tex.cv1
 
-import com.mobileshift.cv.model.ChartItemDTO
+import group.helmi.cv.model.ChartItemDTO
 
 object Bubbles {
     fun make(items: List<ChartItemDTO>?): String {

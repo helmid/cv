@@ -1,13 +1,13 @@
-package com.mobileshift.cv.controller
+package group.helmi.cv.controller
 
-import com.mobileshift.cv.model.CvDTO
-import com.mobileshift.cv.model.MimeTypedResource
-import com.mobileshift.cv.service.CvService
+import group.helmi.cv.model.CvDTO
+import group.helmi.cv.model.MimeTypedResource
+import group.helmi.cv.service.CvService
+import group.helmi.cv.util.Path
 import org.springframework.core.io.UrlResource
 import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import com.mobileshift.cv.util.Path
 
 @RestController
 @RequestMapping(Path.DOCUMENT)

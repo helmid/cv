@@ -1,6 +1,6 @@
-package com.mobileshift.cv.util
+package group.helmi.cv.util
 
-import com.mobileshift.cv.model.MimeTypedResource
+import group.helmi.cv.model.MimeTypedResource
 import org.slf4j.LoggerFactory
 import org.springframework.core.io.UrlResource
 import java.io.BufferedWriter

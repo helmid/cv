@@ -1,4 +1,4 @@
-package com.mobileshift.cv.model
+package group.helmi.cv.model
 
 import org.springframework.core.io.UrlResource
 

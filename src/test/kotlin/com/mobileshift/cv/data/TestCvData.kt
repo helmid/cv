@@ -1,4 +1,4 @@
-package com.mobileshift.cv.data
+package group.helmi.cv.data
 
 class TestCvData {
     companion object {

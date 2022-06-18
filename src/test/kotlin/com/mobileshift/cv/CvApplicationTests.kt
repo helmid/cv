@@ -1,4 +1,4 @@
-package com.mobileshift.cv
+package group.helmi.cv
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

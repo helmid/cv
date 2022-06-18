@@ -1,6 +1,6 @@
-package com.mobileshift.cv.model.templates.tex.cv1
+package group.helmi.cv.model.templates.tex.cv1
 
-import com.mobileshift.cv.model.HistoryEntryDTO
+import group.helmi.cv.model.HistoryEntryDTO
 
 object SectionHistory {
     fun make(title: String, items: List<HistoryEntryDTO>): String {

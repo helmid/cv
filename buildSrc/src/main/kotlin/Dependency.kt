@@ -14,7 +14,7 @@ object Dependency {
 
     object Test {
         object Spring {
-            val web = "org.springframework.security:spring-security-test"
+            val web = "org.springframework.boot:spring-boot-starter-test"
             val security = "org.springframework.security:spring-security-test"
         }
     }

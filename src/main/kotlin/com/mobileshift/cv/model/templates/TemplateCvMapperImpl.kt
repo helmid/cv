@@ -1,6 +1,6 @@
-package com.mobileshift.cv.model.templates
+package group.helmi.cv.model.templates
 
-import com.mobileshift.cv.model.*
+import group.helmi.cv.model.*
 
 abstract class TemplateCvMapperImpl : TemplateCvMapper {
     fun texifyCv(cvDTO: CvDTO): CvDTO {

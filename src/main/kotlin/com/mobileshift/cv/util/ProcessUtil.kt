@@ -1,4 +1,4 @@
-package com.mobileshift.cv.util
+package group.helmi.cv.util
 
 import org.slf4j.LoggerFactory
 import java.io.File

@@ -1,12 +1,12 @@
-package com.mobileshift.cv.service
+package group.helmi.cv.service
 
-import com.mobileshift.cv.mapper.TexCvMapper
-import com.mobileshift.cv.model.CvDTO
-import com.mobileshift.cv.model.MimeTypedResource
-import com.mobileshift.cv.model.templates.tex.cv1.Cls
-import com.mobileshift.cv.model.templates.tex.cv1.Cv
-import com.mobileshift.cv.util.FileUtil
-import com.mobileshift.cv.util.ProcessUtil
+import group.helmi.cv.mapper.TexCvMapper
+import group.helmi.cv.model.CvDTO
+import group.helmi.cv.model.MimeTypedResource
+import group.helmi.cv.model.templates.tex.cv1.Cls
+import group.helmi.cv.model.templates.tex.cv1.Cv
+import group.helmi.cv.util.FileUtil
+import group.helmi.cv.util.ProcessUtil
 import org.springframework.stereotype.Service
 import java.nio.file.Files
 import java.nio.file.Path

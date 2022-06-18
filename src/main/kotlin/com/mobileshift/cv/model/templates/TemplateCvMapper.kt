@@ -1,4 +1,4 @@
-package com.mobileshift.cv.model.templates
+package group.helmi.cv.model.templates
 
 interface TemplateCvMapper {
     fun formatString(string: String): String

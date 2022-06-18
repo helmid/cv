@@ -1,4 +1,4 @@
-package com.mobileshift.cv.model
+package group.helmi.cv.model
 
 import com.fasterxml.jackson.annotation.JsonSubTypes
 import com.fasterxml.jackson.annotation.JsonTypeInfo

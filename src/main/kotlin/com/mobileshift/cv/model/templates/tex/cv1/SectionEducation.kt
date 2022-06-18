@@ -1,6 +1,6 @@
-package com.mobileshift.cv.model.templates.tex.cv1
+package group.helmi.cv.model.templates.tex.cv1
 
-import com.mobileshift.cv.model.EducationEntryDTO
+import group.helmi.cv.model.EducationEntryDTO
 
 object SectionEducation {
     fun make(title: String, items: List<EducationEntryDTO>): String {

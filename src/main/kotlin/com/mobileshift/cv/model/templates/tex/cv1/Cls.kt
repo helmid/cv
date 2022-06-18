@@ -1,4 +1,4 @@
-package com.mobileshift.cv.model.templates.tex.cv1
+package group.helmi.cv.model.templates.tex.cv1
 
 object Cls {
     val clsData = """

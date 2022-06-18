@@ -1,6 +1,6 @@
-package com.mobileshift.cv.model.templates.tex.cv1
+package group.helmi.cv.model.templates.tex.cv1
 
-import com.mobileshift.cv.model.AboutEntryDTO
+import group.helmi.cv.model.AboutEntryDTO
 
 object SectionAbout {
     private val barChartMaxWidth = 5.5

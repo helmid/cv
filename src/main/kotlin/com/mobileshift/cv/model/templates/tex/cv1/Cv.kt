@@ -1,6 +1,6 @@
-package com.mobileshift.cv.model.templates.tex.cv1
+package group.helmi.cv.model.templates.tex.cv1
 
-import com.mobileshift.cv.model.CvDTO
+import group.helmi.cv.model.CvDTO
 
 object Cv {
     fun make(cv: CvDTO): String {

@@ -1,6 +1,6 @@
-package com.mobileshift.cv.model.templates.tex.cv1
+package group.helmi.cv.model.templates.tex.cv1
 
-import com.mobileshift.cv.model.ContactItemDTO
+import group.helmi.cv.model.ContactItemDTO
 
 object Header {
     fun make(firstName: String, lastName: String, jobTitle: String, contact: List<ContactItemDTO>): String {
