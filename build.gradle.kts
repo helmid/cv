@@ -1,16 +1,17 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.6.7"
-	id("io.spring.dependency-management") version "1.0.11.RELEASE"
-	kotlin("jvm") version "1.6.21"
-	kotlin("plugin.spring") version "1.6.21"
-	kotlin("plugin.serialization") version "1.6.10"
+	id(Plugin.Name.Spring.boot) version Version.Plugin.Spring.boot
+	id(Plugin.Name.Spring.dependecyManagement) version Version.Plugin.Spring.dependecyManagement
+	kotlin(Plugin.Name.Kotlin.jvm) version Version.Plugin.Kotlin.jvm
+	kotlin(Plugin.Name.Kotlin.spring) version Version.Plugin.Kotlin.spring
+	kotlin(Plugin.Name.Kotlin.serialization) version Version.Plugin.Kotlin.serialization
 }
 
-group = "com.mobile-shift"
-version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_11
+group = App.group
+version = App.version
+
+java.sourceCompatibility = Java.javaVersion
 
 configurations {
 	compileOnly {
@@ -23,19 +24,21 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	compileOnly("org.projectlombok:lombok")
-	annotationProcessor("org.projectlombok:lombok")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	implementation(Dependency.Spring.web)
+	implementation(Dependency.Spring.security)
+	implementation(Dependency.jackson)
+	implementation(Dependency.Kotlin.reflect)
+	implementation(Dependency.Kotlin.jdk)
+	compileOnly(Dependency.lombok)
+	annotationProcessor(Dependency.lombok)
+	testImplementation(Dependency.Test.Spring.web)
+	testImplementation(Dependency.Test.Spring.security)
 }
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
-		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "11"
+		freeCompilerArgs = Java.freeCompilerArgs
+		jvmTarget = Java.jvmTarget
 	}
 }
 
