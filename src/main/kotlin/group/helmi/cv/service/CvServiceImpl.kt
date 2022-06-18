@@ -27,9 +27,9 @@ class CvServiceImpl: CvService {
 
     private fun createAndCompileTex(id: String, cvDTO: CvDTO): String {
         val source = Cv.make(TexCvMapper.texifyCv(cvDTO))
-        val texFileName = makeFilename(cvDTO)
-        return if (writeFile(source, listOf(id))) {
-            compileTex(id, texFileName)
+        val filename = makeFilename(cvDTO)
+        return if (writeFile(source, filename, listOf(id))) {
+            compileTex(id, filename)
         } else {
             ""
         }
@@ -37,14 +37,14 @@ class CvServiceImpl: CvService {
 
     private fun makeFilename(cvDTO: CvDTO): String {
         val date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_hhmmss"))
-        return "${cvDTO.firstName}_${cvDTO.lastName}_${date}.${CvPathUtil.pdfFileType}"
+        return "${cvDTO.firstName}_${cvDTO.lastName}_${date}"
     }
 
     private fun compileTex(id: String, filename: String): String {
         val workingDir = CvPathUtil.getOutputPath(components = listOf(id)).toFile()
-        val command = "pdflatex -shell-escape -halt-on-error ${CvPathUtil.defaultCvFileName}"
+        val command = "pdflatex -shell-escape -halt-on-error $filename "
         ProcessUtil.runCommand(command = command, workingDir = workingDir)
-        return "$id/$filename"
+        return "$id/$filename.${CvPathUtil.pdfFileType}"
     }
 
     override fun loadFile(id: String, filename: String): MimeTypedResource? {
@@ -52,11 +52,11 @@ class CvServiceImpl: CvService {
         return FileUtil.pathToMimeTypedResource(CvPathUtil.getOutputPath(components = resultPath))
     }
 
-    fun writeFile(data: String, pathComponents: List<String>): Boolean {
+    fun writeFile(data: String, filename: String, pathComponents: List<String>): Boolean {
         val path = CvPathUtil.getOutputPath(components = pathComponents)
         path.createDirectories()
         val filePathComponents = pathComponents.toMutableList()
-        filePathComponents.add(CvPathUtil.defaultCvFileName)
+        filePathComponents.add(filename)
         val clsPathComponents = pathComponents.toMutableList()
         clsPathComponents.add(CvPathUtil.defaultClsFileName)
         val cvFile = CvPathUtil.getOutputPath(components = filePathComponents).toFile()
