@@ -34,6 +34,5 @@ class DocumentControllerTests(@Autowired private val documentController: Documen
         Assertions.assertEquals(HttpStatus.OK, response.statusCode, "Expected HTTP Ok")
         Assertions.assertEquals("cv.pdf", response.headers.contentDisposition.filename)
         Assertions.assertEquals(true, response.headers.contentDisposition.isAttachment)
-
     }
 }
