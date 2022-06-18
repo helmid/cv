@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     image: cvapp:latest
     ports:
-      - 8080:8080
+      - 8443:8443
     networks:
       - spring-cloud-network
 networks:

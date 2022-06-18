@@ -15,13 +15,15 @@ RUN tlmgr update --self \
 # Install required packages, to avoid executing `texliveonfly` during document creation
 WORKDIR /
 RUN mkdir test
-ADD initialcompile test
+ADD payload/dummyData test
 RUN cd test && texliveonfly cv.tex
 RUN cd / && rm -R test
 
-# Copy app, expose port and set entrypoint
+# Copy app, keystores, expose port and set entrypoint
 ENV APP_HOME=/usr/app/
 WORKDIR $APP_HOME
 COPY build/libs/*.jar app.jar
-EXPOSE 8080
+RUN mkdir -p payload/cert
+COPY payload/cert payload/cert
+EXPOSE 8443
 ENTRYPOINT ["java", "-jar", "app.jar"]

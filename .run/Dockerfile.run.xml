@@ -7,8 +7,8 @@
         <option name="portBindings">
           <list>
             <DockerPortBindingImpl>
-              <option name="containerPort" value="8080" />
-              <option name="hostPort" value="8080" />
+              <option name="containerPort" value="8443"/>
+              <option name="hostPort" value="8443"/>
             </DockerPortBindingImpl>
           </list>
         </option>
