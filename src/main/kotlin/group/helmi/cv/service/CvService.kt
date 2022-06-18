@@ -4,5 +4,6 @@ import group.helmi.cv.model.CvDTO
 import group.helmi.cv.model.MimeTypedResource
 
 interface CvService {
-    fun build(cvDTO: CvDTO): MimeTypedResource?
+    fun build(cvDTO: CvDTO): String
+    fun loadFile(id: String, filename: String): MimeTypedResource?
 }

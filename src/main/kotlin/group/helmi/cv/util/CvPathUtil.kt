@@ -8,7 +8,7 @@ object CvPathUtil {
     val baseOutputPath = getOutputPath()
     const val defaultCvFileName = "cv.tex"
     const val defaultClsFileName = "developercv.cls"
-    const val defaultCvPdfFileName = "cv.pdf"
+    const val pdfFileType = "pdf"
 
     fun getOutputPath(components: List<String> = listOf()): Path {
         return FileUtil.getPath(baseOutputPathName, components)

@@ -9,6 +9,8 @@ import group.helmi.cv.util.CvPathUtil
 import group.helmi.cv.util.FileUtil
 import group.helmi.cv.util.ProcessUtil
 import org.springframework.stereotype.Service
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.io.path.createDirectories
 
@@ -18,26 +20,35 @@ class CvServiceImpl: CvService {
         CvPathUtil.createBaseOutputPathIfNotExists()
     }
 
-    override fun build(cvDTO: CvDTO): MimeTypedResource? {
+    override fun build(cvDTO: CvDTO): String {
         val uuid = UUID.randomUUID().toString() //TODO: Access control
         return createAndCompileTex(uuid, cvDTO)
     }
 
-    private fun createAndCompileTex(token: String, cvDTO: CvDTO): MimeTypedResource? {
+    private fun createAndCompileTex(id: String, cvDTO: CvDTO): String {
         val source = Cv.make(TexCvMapper.texifyCv(cvDTO))
-        return if (writeFile(source, listOf(token))) {
-            compileTex(listOf(token))
+        val texFileName = makeFilename(cvDTO)
+        return if (writeFile(source, listOf(id))) {
+            compileTex(id, texFileName)
         } else {
-            null
+            ""
         }
     }
 
-    private fun compileTex(pathComponents: List<String>): MimeTypedResource? {
-        val workingDir = CvPathUtil.getOutputPath(components = pathComponents).toFile()
+    private fun makeFilename(cvDTO: CvDTO): String {
+        val date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_hhmmss"))
+        return "${cvDTO.firstName}_${cvDTO.lastName}_${date}.${CvPathUtil.pdfFileType}"
+    }
+
+    private fun compileTex(id: String, filename: String): String {
+        val workingDir = CvPathUtil.getOutputPath(components = listOf(id)).toFile()
         val command = "pdflatex -shell-escape -halt-on-error ${CvPathUtil.defaultCvFileName}"
         ProcessUtil.runCommand(command = command, workingDir = workingDir)
-        val resultPath = pathComponents.toMutableList()
-        resultPath.add(CvPathUtil.defaultCvPdfFileName)
+        return "$id/$filename"
+    }
+
+    override fun loadFile(id: String, filename: String): MimeTypedResource? {
+        val resultPath = listOf(id, filename)
         return FileUtil.pathToMimeTypedResource(CvPathUtil.getOutputPath(components = resultPath))
     }
 

@@ -2,7 +2,6 @@ package group.helmi.cv.util
 
 import group.helmi.cv.model.MimeTypedResource
 import org.slf4j.LoggerFactory
-import org.springframework.core.io.UrlResource
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
@@ -40,15 +39,16 @@ object FileUtil {
             }
         }
         val deleted = directory.delete()
-        var result = "Successfully deleted folder ${directory.absoluteFile}"
-        if (!deleted) {
-            result = "Could not delete folder ${directory.absoluteFile}"
+        val result = if (!deleted) {
+            "Could not delete folder ${directory.absoluteFile}"
+        } else {
+            "Successfully deleted folder ${directory.absoluteFile}"
         }
         logger.error(result)
         return result
     }
 
     fun pathToMimeTypedResource(path: Path): MimeTypedResource {
-        return MimeTypedResource(Files.probeContentType(path), UrlResource(path.toUri()))
+        return MimeTypedResource(Files.probeContentType(path), path.fileName.toString(), path.toFile().readBytes())
     }
 }

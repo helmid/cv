@@ -5,6 +5,6 @@ object Path {
 
     object Document {
         const val DOCUMENT_BASE = "$API_PATH/document"
-        const val POST_MAKE_DOCUMENT = "/make"
+        const val GET_DOCUMENT_BY_ID = "/{id}/{filename}"
     }
 }
