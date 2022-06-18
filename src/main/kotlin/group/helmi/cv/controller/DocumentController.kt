@@ -13,11 +13,6 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping(Path.Document.DOCUMENT_BASE)
 class DocumentController(private val cvService: CvService) {
 
-    @GetMapping(Path.Document.GET_DOCUMENT_BY_TOKEN)
-    fun getDocument(@PathVariable token: String): ResponseEntity<UrlResource> {
-        return makeUrlResponse(cvService.load(token))
-    }
-
     @PostMapping(Path.Document.POST_MAKE_DOCUMENT)
     fun buildDocument(@RequestBody source: CvDTO): ResponseEntity<UrlResource> {
         return makeUrlResponse(cvService.build(source))
