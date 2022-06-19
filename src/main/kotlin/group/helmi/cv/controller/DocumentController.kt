@@ -35,9 +35,8 @@ class DocumentController(private val cvService: CvService) {
         val headers = HttpHeaders()
         headers.setContentDispositionFormData(file.filename, file.filename)
         file.mimeType?.let { headers.set(HttpHeaders.CONTENT_TYPE, file.mimeType) }
-        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0")
-        val response = ResponseEntity<ByteArray>(file.resource, headers, HttpStatus.OK)
-        return response
+        headers.cacheControl = "must-revalidate, post-check=0, pre-check=0"
+        return ResponseEntity(file.resource, headers, HttpStatus.OK)
     }
 
     @ExceptionHandler

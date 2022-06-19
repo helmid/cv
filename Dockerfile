@@ -19,11 +19,19 @@ ADD payload/dummyData test
 RUN cd test && texliveonfly cv.tex
 RUN cd / && rm -R test
 
-# Copy app, keystores, expose port and set entrypoint
+# Set working directory and copy app
 ENV APP_HOME=/usr/app/
 WORKDIR $APP_HOME
 COPY build/libs/*.jar app.jar
+
+# Copy certificates
 RUN mkdir -p payload/cert
-COPY payload/cert payload/cert
+ADD payload/cert payload/cert
+
+# Copy cv data
+RUN mkdir data
+ADD data/ data/
+
+# Expose port and set entrypoint
 EXPOSE 8443
 ENTRYPOINT ["java", "-jar", "app.jar"]
