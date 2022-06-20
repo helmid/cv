@@ -2,6 +2,7 @@ package group.helmi.cv.model
 
 import com.fasterxml.jackson.annotation.JsonSubTypes
 import com.fasterxml.jackson.annotation.JsonTypeInfo
+import kotlin.math.roundToInt
 
 data class CvDTO (
     val firstName: String,
@@ -12,6 +13,9 @@ data class CvDTO (
 )
 
 data class ContactItemDTO(
+    /**
+     * Icons are fontawesome icons; do not provide the "fa"-prefix in your source
+     */
     val icon: String,
     val text: String,
     val href: String?
@@ -34,7 +38,16 @@ abstract class EntryDTO
 data class AboutEntryDTO(
     val text: String,
     val barchart: List<ChartItemDTO>,
-    val bubbles: List<ChartItemDTO>?
+    val bubbles: List<ChartItemDTO>?,
+    val country: String,
+    val operatingRadius: String,
+    val workingMode: String,
+    /**
+     * Website only attributes
+     */
+    val bubbleMaxSkill: Double = 10.0,
+    val bubblesTitle: String = "",
+    val barTitle: String = ""
 ): EntryDTO()
 
 data class HistoryEntryDTO(
@@ -67,4 +80,9 @@ data class LinkableTextDTO(
 data class ChartItemDTO(
     val title: String,
     val value: Double
-)
+) {
+    fun bubbleToLineChart(maxValue: Double): ChartItemDTO {
+        val newValue = (value / maxValue * 100).roundToInt().toDouble()
+        return ChartItemDTO(title = title, value = newValue)
+    }
+}

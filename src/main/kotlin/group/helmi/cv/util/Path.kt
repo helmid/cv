@@ -7,4 +7,11 @@ object Path {
         const val DOCUMENT_BASE = "$API_PATH/document"
         const val GET_DOCUMENT_BY_ID = "/{id}/{filename}"
     }
+
+    object CvWebsite {
+        /**
+         *  Must match with "target" in contact.json
+         */
+        const val contactAction = "/contact"
+    }
 }

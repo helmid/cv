@@ -26,7 +26,7 @@ class CvServiceImpl: CvService {
     }
 
     private fun createAndCompileTex(id: String, cvDTO: CvDTO): String {
-        val source = Cv.make(TexCvMapper.texifyCv(cvDTO))
+        val source = Cv.make(TexCvMapper.formatCv(cvDTO))
         val filename = makeFilename(cvDTO)
         return if (writeFile(source, filename, listOf(id))) {
             compileTex(id, filename)

@@ -9,7 +9,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 
 object CvWebsiteMetaDTOMapper {
     fun map(cv: CvDTO): CvWebsiteMetaDTO {
-        val name = "${cv.firstName} ${cv.lastName} - ${cv.jobTitle}"
+        val name = "${cv.firstName} ${cv.lastName}, ${cv.jobTitle}"
         val url = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString()
         val openGraphDTO = CvWebsiteOpenGraphDTO(
             name = name,
@@ -37,6 +37,6 @@ object CvWebsiteMetaDTOMapper {
                 }
             }
         }
-        return result.joinToString(", ")
+        return result.distinct().joinToString(", ")
     }
 }

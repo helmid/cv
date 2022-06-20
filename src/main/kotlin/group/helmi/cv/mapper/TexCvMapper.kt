@@ -11,6 +11,10 @@ object TexCvMapper : TemplateCvMapperImpl() {
         return if (string != null) texify(string) else null
     }
 
+    override fun formatFontAwesome(string: String): String {
+        return string
+    }
+
     private fun texify(string: String): String {
         return texifyNewlines(string)
     }

@@ -5,7 +5,8 @@ import group.helmi.cv.model.CvDTO
 data class CvWebsiteDTO(
     val meta: CvWebsiteMetaDTO,
     val cv: CvDTO,
-    val contact: WebsiteContactFormDTO
+    val contact: WebsiteContactFormDTO,
+    val formattedSections: List<String>
 )
 
 data class CvWebsiteMetaDTO(
@@ -23,9 +24,14 @@ data class CvWebsiteOpenGraphDTO(
 )
 
 data class WebsiteContactFormDTO(
-    val target: String,
+    val target: FormTargetDTO,
     val submit: String,
     val input: List<InputFieldDTO>
+)
+
+data class FormTargetDTO(
+    val action: String,
+    val id: String
 )
 
 data class InputFieldDTO(
