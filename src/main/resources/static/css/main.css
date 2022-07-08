@@ -6982,7 +6982,7 @@ Created using IcoMoon - icomoon.io
 
 .cc-profile-image a:before {
     content: "";
-    border: 15px solid rgba(55, 140, 63, 0.6);
+    border: 15px solid #315399;
     border-radius: 50%;
     height: 180px;
     width: 180px;
@@ -6994,6 +6994,13 @@ Created using IcoMoon - icomoon.io
     animation-iteration-count: infinite;
     opacity: 0.0;
     z-index: 99;
+}
+
+/* Firefox seems to have issues with absolute positions within relative containers */
+@-moz-document url-prefix() {
+    .cc-profile-image a:before {
+        display: none;
+    }
 }
 
 .cc-profile-image img {
