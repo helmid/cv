@@ -1,7 +1,7 @@
 // https://raw.githubusercontent.com/osano/cookieconsent/dev/LICENSE
 window.addEventListener('load', function () {
     window.cookieconsent.initialise({
-        revokeBtn: "<div class='cc-revoke'></div>",
+        revokeBtn: "<div class='cc-revoke hg-visibility-gone' id='revoke-consent-decision-button'></div>",
         type: "opt-in",
         position: "bottom-right",
         theme: "edgeless",
@@ -35,4 +35,8 @@ window.addEventListener('load', function () {
 
 function consentGiven() {
 
+}
+
+function revokeConsent() {
+    document.getElementById('revoke-consent-decision-button').click()
 }
