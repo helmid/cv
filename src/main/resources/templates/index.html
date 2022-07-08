@@ -11,21 +11,7 @@
     <meta content="" property="og:url" th:content="${cvWebsiteDTO.meta.openGraph.url}">
     <meta content="" property="og:type" th:content="${cvWebsiteDTO.meta.openGraph.type}">
     <meta content="" property="og:title" th:content="${cvWebsiteDTO.meta.openGraph.title}">
-    <!-- Favicon -->
-    <link href="icon.ico" rel="icon" sizes="56x56" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/aos.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <noscript>
-        <style type="text/css">
-            [data-aos] {
-                opacity: 1 !important;
-                transform: translate(0) scale(1) !important;
-            }
-        </style>
-    </noscript>
+    <script th:replace="fragments/head :: head"></script>
 </head>
 
 <body id="top">
@@ -55,38 +41,36 @@
     </div>
 </header>
 <div class="page-content">
-    <div>
-        <div class="profile-page">
-            <div class="wrapper">
-                <div class="page-header page-header-small" filter-color="superblue">
-                    <div class="page-header-image" data-parallax="true"
-                         style="background-image: url('images/cc-bg-2.jpg')">
-                    </div>
-                    <div class="container">
-                        <div class="content-center">
-                            <div class="cc-profile-image"><a href="#"><img alt="Image" src="/images/dhe.jpg"/></a></div>
-                            <div class="h2 title"
-                                 th:text="${cvWebsiteDTO.cv.firstName} + '&nbsp;' + ${cvWebsiteDTO.cv.lastName}">Name
-                            </div>
-                            <p class="category text-white" th:text="${cvWebsiteDTO.cv.jobTitle}">Job Description</p><a
-                                class="btn btn-primary smooth-scroll mr-2" data-aos="zoom-in"
-                                data-aos-anchor="data-aos-anchor" href=""
-                                th:href="'#' + ${cvWebsiteDTO.contact.target.id}">Hire Me</a>
-                            <a class="btn btn-primary" data-aos="zoom-in" data-aos-anchor="data-aos-anchor"
-                               href="pdfDownload"
-                               target="_blank">Request CV</a>
+    <div class="profile-page">
+        <div class="wrapper">
+            <div class="page-header page-header-small" filter-color="superblue">
+                <div class="page-header-image" data-parallax="true"
+                     style="background-image: url('images/cc-bg-2.jpg')">
+                </div>
+                <div class="container">
+                    <div class="content-center">
+                        <div class="cc-profile-image"><a href="#"><img alt="Image" src="/images/dhe.jpg"/></a></div>
+                        <div class="h2 title"
+                             th:text="${cvWebsiteDTO.cv.firstName} + '&nbsp;' + ${cvWebsiteDTO.cv.lastName}">Name
                         </div>
+                        <p class="category text-white" th:text="${cvWebsiteDTO.cv.jobTitle}">Job Description</p><a
+                            class="btn btn-primary smooth-scroll mr-2" data-aos="zoom-in"
+                            data-aos-anchor="data-aos-anchor" href=""
+                            th:href="'#' + ${cvWebsiteDTO.contact.target.id}">Hire Me</a>
+                        <a class="btn btn-primary" data-aos="zoom-in" data-aos-anchor="data-aos-anchor"
+                           href="pdfDownload"
+                           target="_blank">Request CV</a>
                     </div>
-                    <div class="section">
-                        <div class="container">
-                            <div class="button-container">
-                                <th:block th:each="contact : ${cvWebsiteDTO.cv.contact}">
-                                    <a class="btn btn-default btn-round btn-lg btn-icon"
-                                       href="" rel="tooltip" target="_blank" th:href="${contact.href}"
-                                       th:title="${contact.text}" title="">
-                                        <i class="fa" th:class="'fa ' + ${contact.icon.toLowerCase()}"></i></a>
-                                </th:block>
-                            </div>
+                </div>
+                <div class="section">
+                    <div class="container">
+                        <div class="button-container">
+                            <th:block th:each="contact : ${cvWebsiteDTO.cv.contact}">
+                                <a class="btn btn-default btn-round btn-lg btn-icon"
+                                   href="" rel="tooltip" target="_blank" th:href="${contact.href}"
+                                   th:title="${contact.text}" title="">
+                                    <i class="fa" th:class="'fa ' + ${contact.icon.toLowerCase()}"></i></a>
+                            </th:block>
                         </div>
                     </div>
                 </div>
@@ -96,77 +80,11 @@
     <th:block th:each="section : ${cvWebsiteDTO.formattedSections}">
         <div th:remove="tag" th:utext="${section}"></div>
     </th:block>
-    <div class="section" id="contact">
-        <div class="cc-contact-information" style="background-image: url('images/backgroundmap.JPG')">
-            <div class="container">
-                <div class="cc-contact">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="card mb-0" data-aos="zoom-in">
-                                <div class="h4 text-center title">Contact Me</div>
-                                <div class="row flexContainer">
-                                    <div class="col-md-6">
-                                        <div class="card-body">
-                                            <form action="#" method="POST">
-                                                <div class="p pb-3"><strong>Feel free to contact me </strong></div>
-                                                <div class="row mb-3">
-                                                    <div class="col">
-                                                        <div class="input-group"><span class="input-group-addon"><i
-                                                                class="fa fa-user-circle"></i></span>
-                                                            <input class="form-control" name="name" placeholder="Name"
-                                                                   required="required"
-                                                                   type="text"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-3">
-                                                    <div class="col">
-                                                        <div class="input-group"><span class="input-group-addon"><i
-                                                                class="fa fa-file-text"></i></span>
-                                                            <input class="form-control" name="Subject"
-                                                                   placeholder="Subject" required="required"
-                                                                   type="text"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-3">
-                                                    <div class="col">
-                                                        <div class="input-group"><span class="input-group-addon"><i
-                                                                class="fa fa-envelope"></i></span>
-                                                            <input class="form-control" name="_replyto"
-                                                                   placeholder="E-mail" required="required"
-                                                                   type="email"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-3">
-                                                    <div class="col">
-                                                        <div class="form-group">
-                                <textarea class="form-control" name="message" placeholder="Your Message"
-                                          required="required"></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <button class="btn btn-primary" type="submit">Send</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 <footer class="footer">
     <div class="container text-center">
-        <a class="btn btn-link" href="/imprint.html">Imprint</a>
+        <a class="btn btn-link" href="/imprint">Imprint</a>
+        <a class="btn btn-link" href="/gdpr">Privacy and cookies</a>
     </div>
 </footer>
 <script src="js/core/jquery.3.2.1.min.js"></script>

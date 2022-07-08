@@ -16,6 +16,16 @@ class CvWebsiteController(private val websiteService: CvWebsiteService) : WebMvc
         return "index"
     }
 
+    @GetMapping("/imprint")
+    fun getImprint(): String {
+        return "imprint"
+    }
+
+    @GetMapping("/gdpr")
+    fun getGDPR(): String {
+        return "gdpr"
+    }
+
     override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
         registry.addResourceHandler("/**").addResourceLocations("classpath:/static/")
     }
