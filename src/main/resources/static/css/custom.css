@@ -15,3 +15,7 @@ p.hg-skills-used {
     color: #888;
     font-style: italic;
 }
+
+span.hg-line {
+    display: inline-block;
+}

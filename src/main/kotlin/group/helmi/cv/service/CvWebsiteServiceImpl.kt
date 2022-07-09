@@ -25,7 +25,8 @@ class CvWebsiteServiceImpl : CvWebsiteService {
             cv = cv,
             contact = contact,
             formattedSections = Section.make(cv.sections),
-            sectionIds = cv.sections.associate { it.title to it.title.toKebapCase() }
+            sectionIds = cv.sections.associate { it.title to it.title.toKebapCase() },
+            cvProfilePicture = CvPathUtil.getProfilePicture(true)
         )
     }
 }

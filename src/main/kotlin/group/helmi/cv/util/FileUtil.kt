@@ -49,6 +49,19 @@ object FileUtil {
     }
 
     fun pathToMimeTypedResource(path: Path): MimeTypedResource {
-        return MimeTypedResource(Files.probeContentType(path), path.fileName.toString(), path.toFile().readBytes())
+        return MimeTypedResource(mimeTypeForPath(path), path.fileName.toString(), path.toFile().readBytes())
+    }
+
+    fun mimeTypeForPath(path: Path): String? {
+        return Files.probeContentType(path) ?: getExtension(path)
+    }
+
+    private fun getExtension(path: Path): String? {
+        val split = path.toFile().name.split(".")
+        return if (split.size <= 1) {
+            null
+        } else {
+            split.last()
+        }
     }
 }

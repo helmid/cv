@@ -49,7 +49,9 @@
                 </div>
                 <div class="container">
                     <div class="content-center">
-                        <div class="cc-profile-image"><a href="#"><img alt="Image" src="/images/dhe.webp"/></a></div>
+                        <div class="cc-profile-image"><a href="#"><img alt="Image"
+                                                                       th:src="${cvWebsiteDTO.cvProfilePicture}"/></a>
+                        </div>
                         <div class="h2 title"
                              th:text="${cvWebsiteDTO.cv.firstName} + '&nbsp;' + ${cvWebsiteDTO.cv.lastName}">Name
                         </div>

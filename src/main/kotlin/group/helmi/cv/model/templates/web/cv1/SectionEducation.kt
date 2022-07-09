@@ -25,12 +25,14 @@ object SectionEducation {
     private fun makeCard(item: EducationEntryDTO, id: String, index: Int): String {
         val innerContent =
             if (item.content.url != null) "<p><a href=\"${item.content.url}\">${item.content.text}</a></p>" else "<p>${item.content.text}</p>"
+        val date =
+            if (item.start == item.end) """<span class="hg-line">${item.end}</span>""" else """<span class="hg-line">${item.start}&nbsp;-&nbsp;</span><span class="hg-line">${item.end}</span>"""
         val content = """
                 <div class="card">
                     <div class="row">
                         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
                             <div class="card-body cc-experience-header">
-                                <p>${item.start} - ${item.end}</p>
+                                <p>$date</p>
                                 <div class="h5">${item.facility}</div>
                             </div>
                         </div>

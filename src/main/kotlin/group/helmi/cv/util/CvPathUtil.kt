@@ -2,12 +2,14 @@ package group.helmi.cv.util
 
 import java.nio.file.Files
 import java.nio.file.Path
+import java.util.*
 
 object CvPathUtil {
-    private val baseOutputPathName = "output"
-    private val baseDataPathName = "data"
-    private val cvFilename = "cv.json"
-    private val contactFilename = "contact.json"
+    private const val baseOutputPathName = "output"
+    private const val baseDataPathName = "data"
+    private const val cvFilename = "cv.json"
+    private const val contactFilename = "contact.json"
+    private const val profilePicture = "cvProfilePicture.webp"
     val baseOutputPath = getOutputPath()
     const val defaultClsFileName = "developercv.cls"
     const val pdfFileType = "pdf"
@@ -20,6 +22,18 @@ object CvPathUtil {
     fun getCvJson(): String = getDataFile(cvFilename)
 
     fun getContactJson(): String = getDataFile(contactFilename)
+
+    fun getProfilePicture(addWebSrcPrefix: Boolean): String {
+        val path = FileUtil.getPath(baseDataPathName, listOf(profilePicture))
+        val base64 = String(Base64.getEncoder().encode(Files.readAllBytes(path)))
+        var prefix = ""
+        if (addWebSrcPrefix) {
+            val mimeType = FileUtil.mimeTypeForPath(path)
+            prefix = "data:image/$mimeType;base64,"
+        }
+
+        return "$prefix$base64"
+    }
 
     private fun getDataFile(filename: String): String {
         val path = FileUtil.getPath(baseDataPathName, listOf(filename))
