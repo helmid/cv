@@ -3,12 +3,14 @@ package group.helmi.cv.model.templates
 import group.helmi.cv.model.*
 
 abstract class TemplateCvMapperImpl : TemplateCvMapper {
-    fun formatCv(cvDTO: CvDTO): CvDTO {
+    fun formatCv(cvDTO: CvDTO, cvPermission: CvPermission): CvDTO {
+        val contact = cvDTO.contact.map { formatContact(it) }
+            .filter { cvPermission.contactDisclosureAllowed || it.disclose }
         return CvDTO(
             firstName = formatString(cvDTO.firstName),
             lastName = formatString(cvDTO.lastName),
             jobTitle = formatString(cvDTO.jobTitle),
-            contact = cvDTO.contact.map { formatContact(it) },
+            contact = contact,
             sections = cvDTO.sections.map { formatSection(it) }
         )
     }

@@ -2,6 +2,7 @@ package group.helmi.cv.service
 
 import group.helmi.cv.mapper.TexCvMapper
 import group.helmi.cv.model.CvDTO
+import group.helmi.cv.model.CvPermission
 import group.helmi.cv.model.MimeTypedResource
 import group.helmi.cv.model.templates.tex.cv1.Cls
 import group.helmi.cv.model.templates.tex.cv1.Cv
@@ -26,7 +27,8 @@ class CvServiceImpl: CvService {
     }
 
     private fun createAndCompileTex(id: String, cvDTO: CvDTO): String {
-        val source = Cv.make(TexCvMapper.formatCv(cvDTO))
+        val cvPermission = CvPermission(contactDisclosureAllowed = true)
+        val source = Cv.make(TexCvMapper.formatCv(cvDTO, cvPermission))
         val filename = makeFilename(cvDTO)
         return if (writeFile(source, filename, listOf(id))) {
             compileTex(id, filename)
