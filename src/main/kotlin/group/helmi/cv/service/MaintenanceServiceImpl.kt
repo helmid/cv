@@ -11,14 +11,14 @@ import org.springframework.stereotype.Service
 @EnableScheduling
 class MaintenanceServiceImpl : MaintenanceService {
     companion object {
-        private const val CRON_5_AM_SUN = "0 5 * * 0"
-        private const val SPRING_CRON_5_AM_SUN = "0 $CRON_5_AM_SUN"
+        private const val CRON_4_AM_FIRST_OF_MONTH = "0 4 1 * *"
+        private const val SPRING_CRON_4_AM_FIRST_OF_MONTH = "0 $CRON_4_AM_FIRST_OF_MONTH"
         private const val UTC = "UTC"
     }
 
     private val logger = LoggerFactory.getLogger(MaintenanceServiceImpl::class.java)
 
-    @Scheduled(cron = SPRING_CRON_5_AM_SUN, zone = UTC)
+    @Scheduled(cron = SPRING_CRON_4_AM_FIRST_OF_MONTH, zone = UTC)
     override fun cleanOutput() {
         val result = FileUtil.deleteDirectory(CvPathUtil.baseOutputPath.toFile())
         logger.info(result)
