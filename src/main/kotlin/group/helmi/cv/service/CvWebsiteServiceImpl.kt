@@ -10,6 +10,7 @@ import group.helmi.cv.model.CvDTO
 import group.helmi.cv.model.CvPermission
 import group.helmi.cv.model.templates.web.cv1.Section
 import group.helmi.cv.util.CvPathUtil
+import group.helmi.cv.util.extension.toKebapCase
 import org.springframework.stereotype.Service
 
 @Service
@@ -23,7 +24,8 @@ class CvWebsiteServiceImpl : CvWebsiteService {
             meta = CvWebsiteMetaDTOMapper.map(cv),
             cv = cv,
             contact = contact,
-            formattedSections = Section.make(cv.sections)
+            formattedSections = Section.make(cv.sections),
+            sectionIds = cv.sections.associate { it.title to it.title.toKebapCase() }
         )
     }
 }

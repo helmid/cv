@@ -31,7 +31,7 @@
                     <ul class="navbar-nav">
                         <th:block th:each="section : ${cvWebsiteDTO.cv.sections}">
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="#section"
-                                                    th:href="'#' + ${section.title.toLowerCase().replace(' ', '')}"
+                                                    th:href="'#' + ${cvWebsiteDTO.sectionIds[section.title]}"
                                                     th:text="${section.title}">Section</a></li>
                         </th:block>
                     </ul>

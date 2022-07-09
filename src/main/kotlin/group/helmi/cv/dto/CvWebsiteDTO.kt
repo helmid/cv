@@ -6,7 +6,8 @@ data class CvWebsiteDTO(
     val meta: CvWebsiteMetaDTO,
     val cv: CvDTO,
     val contact: WebsiteContactFormDTO,
-    val formattedSections: List<String>
+    val formattedSections: List<String>,
+    val sectionIds: Map<String, String>
 )
 
 data class CvWebsiteMetaDTO(

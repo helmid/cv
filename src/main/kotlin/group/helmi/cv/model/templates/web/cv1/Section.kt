@@ -1,6 +1,7 @@
 package group.helmi.cv.model.templates.web.cv1
 
 import group.helmi.cv.model.*
+import group.helmi.cv.util.extension.toKebapCase
 
 object Section {
     fun make(sections: List<SectionElementDTO>): List<String> {
@@ -21,7 +22,7 @@ object Section {
 
     fun makeSectionWrapper(title: String, content: String): String {
         return """
-            <div class="section">
+            <div class="section" id="${title.toKebapCase()}">
             <div class="container">
                 <div class="h4 text-center mb-4 title">$title</div>
                 <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
