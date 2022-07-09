@@ -119,7 +119,7 @@
                         link: "Learn more",
                         href: "https://www.cookiesandyou.com",
                         close: "&#x274c;",
-                        target: "_blank",
+                        target: "_self",
                         policy: "Cookie Policy",
                         imprint: "Imprint",
                         imptintHref: "/imprint"

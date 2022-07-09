@@ -5,3 +5,8 @@
 .hg-visibility-gone {
     display: none !important;
 }
+
+.page-header.hg-page-header-very-small {
+    min-height: 100px;
+    max-height: 200px;
+}

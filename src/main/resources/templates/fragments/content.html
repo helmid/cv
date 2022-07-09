@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<fragment th:fragment="simpleContentHeader(title)" th:remove="tag">
+    <div class="profile-page">
+        <div class="wrapper">
+            <div class="page-header hg-page-header-very-small">
+                <div class="page-header-image" data-parallax="true">
+                    <div class="bg-primary hg-full-height"></div>
+                </div>
+                <div class="container">
+                    <div class="content-center">
+                        <div class="h2 title" th:text="${title}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</fragment>
+</html>

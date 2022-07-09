@@ -42,4 +42,55 @@
     <script src="js/cookieConsentMain.js"></script>
     <script src="js/cookieConsent.js"></script>
 </fragment>
+
+<fragment th:fragment="simpleHeader" th:remove="tag">
+    <header>
+        <div class="profile-page sidebar-collapse">
+            <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
+                <div class="container">
+                    <div class="navbar-translate"><a class="navbar-brand" href="/" rel="tooltip">Home</a></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+</fragment>
+
+<fragment th:fragment="profilePage" th:remove="tag">
+    <div class="profile-page">
+        <div class="wrapper">
+            <div class="page-header page-header-small">
+                <div class="page-header-image" data-parallax="true">
+                    <div class="bg-primary hg-full-height"></div>
+                </div>
+                <div class="container">
+                    <div class="content-center">
+                        <div class="cc-profile-image"><a href="#"><img alt="Image" src="/images/dhe.webp"/></a></div>
+                        <div class="h2 title"
+                             th:text="${cvWebsiteDTO.cv.firstName} + '&nbsp;' + ${cvWebsiteDTO.cv.lastName}">Name
+                        </div>
+                        <p class="category text-white" th:text="${cvWebsiteDTO.cv.jobTitle}">Job Description</p><a
+                            class="btn btn-primary smooth-scroll mr-2" data-aos="zoom-in"
+                            data-aos-anchor="data-aos-anchor" href=""
+                            th:href="'#' + ${cvWebsiteDTO.contact.target.id}">Hire Me</a>
+                        <a class="btn btn-primary" data-aos="zoom-in" data-aos-anchor="data-aos-anchor"
+                           href="pdfDownload"
+                           target="_self">Request CV</a>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="container">
+                        <div class="button-container">
+                            <th:block th:each="contact : ${cvWebsiteDTO.cv.contact}">
+                                <a class="btn btn-default btn-round btn-lg btn-icon"
+                                   href="" rel="tooltip" target="_self" th:href="${contact.href}"
+                                   th:title="${contact.text}" title="">
+                                    <i class="fa" th:class="'fa ' + ${contact.icon.toLowerCase()}"></i></a>
+                            </th:block>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</fragment>
 </html>
