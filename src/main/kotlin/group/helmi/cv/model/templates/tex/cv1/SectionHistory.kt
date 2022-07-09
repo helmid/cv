@@ -19,15 +19,10 @@ object SectionHistory {
     }
 
     private fun makeEntry(item: HistoryEntryDTO): String {
-        val date = if (item.end == null) {
-            "since ${item.start}" //TODO: Localize
-        } else {
-            "${item.start} -- ${item.end}"
-        }
         val skills = makeSkillStack(item.skills)
         return """
                 \entry
-                    {$date}
+                    {${item.getDate("--")}}
                     {${item.jobTitle}}
                     {${item.customer}}
                     {${item.description}

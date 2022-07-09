@@ -10,3 +10,8 @@
     min-height: 100px;
     max-height: 200px;
 }
+
+p.hg-skills-used {
+    color: #888;
+    font-style: italic;
+}

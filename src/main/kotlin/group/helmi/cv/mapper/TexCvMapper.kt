@@ -16,10 +16,14 @@ object TexCvMapper : TemplateCvMapperImpl() {
     }
 
     private fun texify(string: String): String {
-        return texifyNewlines(string)
+        return texifySpecialCharacters(texifyNewlines(string))
     }
 
     private fun texifyNewlines(string: String): String {
         return string.replace("\n", "\\newline\n")
+    }
+
+    private fun texifySpecialCharacters(string: String): String {
+        return string.replace("&", "\\&")
     }
 }

@@ -3,6 +3,7 @@ package group.helmi.cv.model.templates.web.cv1
 import group.helmi.cv.model.AboutEntryDTO
 import group.helmi.cv.model.ChartItemDTO
 import group.helmi.cv.util.extension.makeLines
+import group.helmi.cv.util.extension.toKebapCase
 import org.slf4j.LoggerFactory
 
 object SectionAbout {
@@ -22,7 +23,7 @@ object SectionAbout {
 
     private fun makeAboutSection(title: String, item: AboutEntryDTO): String {
         return """
-            <div class="section" id="${title.replace(" ", "")}">
+            <div class="section" id="${title.toKebapCase()}">
         <div class="container">
           <div class="card" data-aos="fade-up" data-aos-offset="10">
             <div class="row">

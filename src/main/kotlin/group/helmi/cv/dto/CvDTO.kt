@@ -18,7 +18,8 @@ data class ContactItemDTO(
      */
     val icon: String,
     val text: String,
-    val href: String?
+    val href: String?,
+    val disclose: Boolean
 )
 
 class SectionElementDTO(
@@ -57,7 +58,15 @@ data class HistoryEntryDTO(
     val customer: String,
     val description: String,
     val skills: List<String>
-): EntryDTO()
+) : EntryDTO() {
+    fun getDate(separator: String): String {
+        return if (end == null) {
+            "since $start" //TODO: Localize
+        } else {
+            "$start $separator $end"
+        }
+    }
+}
 
 data class EducationEntryDTO(
     val start: String,

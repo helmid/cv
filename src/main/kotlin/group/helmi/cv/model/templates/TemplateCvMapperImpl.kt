@@ -17,7 +17,8 @@ abstract class TemplateCvMapperImpl : TemplateCvMapper {
         return ContactItemDTO(
             icon = formatFontAwesome(contactItemDTO.icon),
             text = formatString(contactItemDTO.text),
-            href = contactItemDTO.href
+            href = contactItemDTO.href,
+            disclose = contactItemDTO.disclose
         )
     }
 
