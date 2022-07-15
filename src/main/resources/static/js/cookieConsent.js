@@ -17,7 +17,7 @@ window.addEventListener('load', function () {
         },
         content: {
             message: 'This website uses cookies to ensure you get the best experience.<br>',
-            link: "Cookies",
+            link: "Data Protection & Cookies",
             allow: "Allow all",
             deny: "Decline all",
             href: "/gdpr",
@@ -25,16 +25,23 @@ window.addEventListener('load', function () {
             imptintHref: "/imprint"
         },
         onInitialise: function (status) {
-            if (status === cookieconsent.status.allow) consentGiven();
+            consentDecisionMade(status);
         },
         onStatusChange: function (status) {
-            if (this.hasConsented()) consentGiven();
+            consentDecisionMade(status);
         }
     })
 });
 
-function consentGiven() {
-
+function consentDecisionMade(status) {
+    switch (status) {
+        case cookieconsent.status.allow:
+            break;
+        case cookieconsent.status.deny:
+            break;
+        case cookieconsent.status.dismiss:
+            break;
+    }
 }
 
 function revokeConsent() {
