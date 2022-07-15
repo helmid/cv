@@ -1,7 +1,8 @@
-package group.helmi.cv.model
+package group.helmi.cv.dto
 
 import com.fasterxml.jackson.annotation.JsonSubTypes
 import com.fasterxml.jackson.annotation.JsonTypeInfo
+import group.helmi.cv.util.extension.localized
 import kotlin.math.roundToInt
 
 data class CvDTO (
@@ -61,7 +62,7 @@ data class HistoryEntryDTO(
 ) : EntryDTO() {
     fun getDate(separator: String): String {
         return if (end == null) {
-            "since $start" //TODO: Localize
+            "${"since".localized()} $start"
         } else {
             "$start $separator $end"
         }
