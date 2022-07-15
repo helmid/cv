@@ -16,12 +16,12 @@ class CvWebsiteController(private val websiteService: CvWebsiteService) : WebMvc
         return "index"
     }
 
-    @GetMapping("/imprint")
+    @GetMapping("/imprint.html", "impressum.html")
     fun getImprint(): String {
         return "imprint"
     }
 
-    @GetMapping("/gdpr")
+    @GetMapping("/privacy.html", "datenschutz.html")
     fun getGDPR(): String {
         return "gdpr"
     }

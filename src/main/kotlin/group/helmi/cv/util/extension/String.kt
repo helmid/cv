@@ -7,4 +7,4 @@ fun String.toKebapCase() = concatAndSnakeCase().replace("(?<=.)(?=\\p{Upper})".t
 fun String.concatAndSnakeCase() =
     split("\\s".toRegex()).joinToString("") { it.replaceFirstChar { char -> char.uppercase() } }
 
-fun String.localized() = Translator.toLocale(this)
+fun String.localized(args: Array<String>? = null) = Translator.toLocale(this, args)

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<fragment th:fragment="cookieConsent" th:remove="tag">
+    <script th:inline="javascript">
+        window.addEventListener('load', function () {
+            initializeConsent(
+                {
+                    message: [[#{cookie_consent_message}]],
+                    link: [[#{cookie_consent_data_protection_link_text}]],
+                    allow: [[#{cookie_consent_accept_all_button_text}]],
+                    deny: [[#{cookie_consent_decline_all_button_text}]],
+                    href: [[#{gdpr_path}]],
+                    imprint: [[#{cookie_consent_imprint_link_text}]],
+                    imptintHref: [[#{imprint_path}]]
+                }
+            );
+        });
+    </script>
+</fragment>
+</html>

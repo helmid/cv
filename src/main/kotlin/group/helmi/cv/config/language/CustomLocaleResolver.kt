@@ -6,8 +6,10 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.context.support.ResourceBundleMessageSource
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor
 import java.util.*
 import javax.servlet.http.HttpServletRequest
+
 
 @Configuration
 class CustomLocaleResolver : AcceptHeaderLocaleResolver(), WebMvcConfigurer {
@@ -34,5 +36,12 @@ class CustomLocaleResolver : AcceptHeaderLocaleResolver(), WebMvcConfigurer {
         rs.setDefaultEncoding("UTF-8")
         rs.setUseCodeAsDefaultMessage(true)
         return rs
+    }
+
+    @Bean
+    fun localeChangeInterceptor(): LocaleChangeInterceptor? {
+        val localeChangeInterceptor = LocaleChangeInterceptor()
+        localeChangeInterceptor.paramName = "localeData"
+        return localeChangeInterceptor
     }
 }

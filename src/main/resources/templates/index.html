@@ -85,8 +85,10 @@
 </div>
 <footer class="footer">
     <div class="container text-center">
-        <a class="btn btn-link" href="/imprint" target="_self">Imprint</a>
-        <a class="btn btn-link" href="/gdpr" target="_self">Privacy and cookies</a>
+        <a class="btn btn-link" href="/imprint.html" target="_self" th:href="#{imprint_path}"
+           th:text="#{imprint_link_text}">Imprint</a>
+        <a class="btn btn-link" href="/privacy.html" target="_self" th:href="#{gdpr_path}"
+           th:text="#{privacy_and_cookies_link_text}">Privacy and cookies</a>
     </div>
 </footer>
 <script src="js/core/jquery.3.2.1.min.js"></script>

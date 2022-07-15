@@ -1,6 +1,7 @@
 package group.helmi.cv.model.templates.web.cv1
 
 import group.helmi.cv.util.extension.concatAndSnakeCase
+import group.helmi.cv.util.extension.localized
 
 object CollapsableWrapper {
     private const val collapsedThreshold = 4
@@ -21,8 +22,9 @@ object CollapsableWrapper {
         val ids =
             List(items.size) { index -> if (index > collapsedThreshold) "$snakeTitle$index" else "" }.filter { it.isNotEmpty() }
                 .joinToString(" ")
+        val buttonTitle = "toggle_button_text_prefix".localized(arrayOf(title))
         return """
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="$ids">Toggle $title</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="$ids">$buttonTitle</button>
         """.trimIndent()
     }
 }

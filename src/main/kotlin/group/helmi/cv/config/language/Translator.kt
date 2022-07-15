@@ -13,9 +13,9 @@ class Translator @Autowired constructor(messageSource: ResourceBundleMessageSour
     }
     companion object {
         private var messageSource: ResourceBundleMessageSource? = null
-        fun toLocale(key: String): String {
+        fun toLocale(key: String, args: Array<String>? = null): String {
             val locale = LocaleContextHolder.getLocale()
-            return messageSource?.getMessage(key, null, locale) ?: key
+            return messageSource?.getMessage(key, args, locale) ?: key
         }
     }
 }

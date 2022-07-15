@@ -1,5 +1,5 @@
-// https://raw.githubusercontent.com/osano/cookieconsent/dev/LICENSE
-window.addEventListener('load', function () {
+function initializeConsent(content) {
+    // https://raw.githubusercontent.com/osano/cookieconsent/dev/LICENSE
     window.cookieconsent.initialise({
         revokeBtn: "<div class='cc-revoke hg-visibility-gone' id='revoke-consent-decision-button'></div>",
         type: "opt-in",
@@ -15,15 +15,7 @@ window.addEventListener('load', function () {
                 text: "#FFF"
             }
         },
-        content: {
-            message: 'This website uses cookies to ensure you get the best experience.<br>',
-            link: "Data Protection & Cookies",
-            allow: "Allow all",
-            deny: "Decline all",
-            href: "/gdpr",
-            imprint: "Imprint",
-            imptintHref: "/imprint"
-        },
+        content: content,
         onInitialise: function (status) {
             consentDecisionMade(status);
         },
@@ -31,7 +23,7 @@ window.addEventListener('load', function () {
             consentDecisionMade(status);
         }
     })
-});
+}
 
 function consentDecisionMade(status) {
     switch (status) {
@@ -46,4 +38,5 @@ function consentDecisionMade(status) {
 
 function revokeConsent() {
     document.getElementById('revoke-consent-decision-button').click()
+    consentDecisionMade(cookieconsent.status.deny)
 }
