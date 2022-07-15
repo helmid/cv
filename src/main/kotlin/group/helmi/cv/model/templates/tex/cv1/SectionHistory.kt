@@ -1,6 +1,6 @@
 package group.helmi.cv.model.templates.tex.cv1
 
-import group.helmi.cv.model.HistoryEntryDTO
+import group.helmi.cv.dto.HistoryEntryDTO
 
 object SectionHistory {
     fun make(title: String, items: List<HistoryEntryDTO>): String {

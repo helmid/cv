@@ -1,6 +1,7 @@
 package group.helmi.cv.model.templates
 
-import group.helmi.cv.model.*
+import group.helmi.cv.dto.*
+import group.helmi.cv.model.CvPermission
 
 abstract class TemplateCvMapperImpl : TemplateCvMapper {
     fun formatCv(cvDTO: CvDTO, cvPermission: CvPermission): CvDTO {

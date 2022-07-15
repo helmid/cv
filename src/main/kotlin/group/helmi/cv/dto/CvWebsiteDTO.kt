@@ -1,7 +1,5 @@
 package group.helmi.cv.dto
 
-import group.helmi.cv.model.CvDTO
-
 data class CvWebsiteDTO(
     val meta: CvWebsiteMetaDTO,
     val cv: CvDTO,

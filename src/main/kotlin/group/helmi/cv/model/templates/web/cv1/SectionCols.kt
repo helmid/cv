@@ -1,6 +1,6 @@
 package group.helmi.cv.model.templates.web.cv1
 
-import group.helmi.cv.model.ColsEntryDTO
+import group.helmi.cv.dto.ColsEntryDTO
 import group.helmi.cv.util.extension.toKebapCase
 
 object SectionCols {

@@ -1,6 +1,6 @@
 package group.helmi.cv.model.templates.web.cv1
 
-import group.helmi.cv.model.AboutEntryDTO
+import group.helmi.cv.dto.AboutEntryDTO
 import group.helmi.cv.util.extension.toKebapCase
 import org.slf4j.LoggerFactory
 

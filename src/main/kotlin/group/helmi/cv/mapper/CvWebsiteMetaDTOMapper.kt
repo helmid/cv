@@ -1,10 +1,6 @@
 package group.helmi.cv.mapper
 
-import group.helmi.cv.dto.CvWebsiteMetaDTO
-import group.helmi.cv.dto.CvWebsiteOpenGraphDTO
-import group.helmi.cv.model.AboutEntryDTO
-import group.helmi.cv.model.CvDTO
-import group.helmi.cv.model.HistoryEntryDTO
+import group.helmi.cv.dto.*
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 
 object CvWebsiteMetaDTOMapper {

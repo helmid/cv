@@ -1,6 +1,6 @@
 package group.helmi.cv.model.templates.tex.cv1
 
-import group.helmi.cv.model.CvDTO
+import group.helmi.cv.dto.CvDTO
 
 object Cv {
     fun make(cv: CvDTO): String {

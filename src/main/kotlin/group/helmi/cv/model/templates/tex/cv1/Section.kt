@@ -1,6 +1,6 @@
 package group.helmi.cv.model.templates.tex.cv1
 
-import group.helmi.cv.model.*
+import group.helmi.cv.dto.*
 
 
 object Section {

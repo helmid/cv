@@ -4,7 +4,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import group.helmi.cv.controller.DocumentController
 import group.helmi.cv.data.TestCvData
-import group.helmi.cv.model.CvDTO
+import group.helmi.cv.dto.CvDTO
 import group.helmi.cv.util.FileUtil
 import group.helmi.cv.util.Path
 import org.junit.jupiter.api.AfterEach

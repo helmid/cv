@@ -1,6 +1,6 @@
 package group.helmi.cv.model.templates.web.cv1
 
-import group.helmi.cv.model.ChartItemDTO
+import group.helmi.cv.dto.ChartItemDTO
 import group.helmi.cv.util.extension.makeLines
 
 object LineChart {

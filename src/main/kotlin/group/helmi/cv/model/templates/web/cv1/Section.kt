@@ -1,6 +1,6 @@
 package group.helmi.cv.model.templates.web.cv1
 
-import group.helmi.cv.model.*
+import group.helmi.cv.dto.*
 import group.helmi.cv.util.extension.toKebapCase
 
 object Section {

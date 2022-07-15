@@ -1,6 +1,6 @@
 package group.helmi.cv.service
 
-import group.helmi.cv.model.CvDTO
+import group.helmi.cv.dto.CvDTO
 import group.helmi.cv.model.MimeTypedResource
 
 interface CvService {

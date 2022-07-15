@@ -1,6 +1,6 @@
 package group.helmi.cv.model.templates.tex.cv1
 
-import group.helmi.cv.model.ChartItemDTO
+import group.helmi.cv.dto.ChartItemDTO
 
 object BarChart {
     fun make(items: List<ChartItemDTO>, maxWidth: Double): String {

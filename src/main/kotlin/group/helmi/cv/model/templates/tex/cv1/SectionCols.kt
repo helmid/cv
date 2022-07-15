@@ -1,6 +1,6 @@
 package group.helmi.cv.model.templates.tex.cv1
 
-import group.helmi.cv.model.ColsEntryDTO
+import group.helmi.cv.dto.ColsEntryDTO
 
 object SectionCols {
     private val barChartMaxWidth = 3.0

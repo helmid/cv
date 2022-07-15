@@ -1,6 +1,6 @@
 package group.helmi.cv.model.templates.web.cv1
 
-import group.helmi.cv.model.HistoryEntryDTO
+import group.helmi.cv.dto.HistoryEntryDTO
 import group.helmi.cv.util.extension.concatAndSnakeCase
 import group.helmi.cv.util.extension.toKebapCase
 

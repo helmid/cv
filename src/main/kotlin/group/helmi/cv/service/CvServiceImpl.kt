@@ -1,7 +1,7 @@
 package group.helmi.cv.service
 
+import group.helmi.cv.dto.CvDTO
 import group.helmi.cv.mapper.TexCvMapper
-import group.helmi.cv.model.CvDTO
 import group.helmi.cv.model.CvPermission
 import group.helmi.cv.model.MimeTypedResource
 import group.helmi.cv.model.templates.tex.cv1.Cls

@@ -1,6 +1,6 @@
 package group.helmi.cv.controller
 
-import group.helmi.cv.model.CvDTO
+import group.helmi.cv.dto.CvDTO
 import group.helmi.cv.model.MimeTypedResource
 import group.helmi.cv.service.CvService
 import group.helmi.cv.util.Path
