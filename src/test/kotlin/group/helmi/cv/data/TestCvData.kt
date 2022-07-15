@@ -10,32 +10,38 @@ class TestCvData {
   "contact": [
     {
       "icon": "MapMarker",
-      "text": "Planet Earth"
+      "text": "Planet Earth",
+      "disclose": true
     },
     {
       "icon": "Mobile",
       "text": "+00 (0)000 00000000",
-      "href": "tel:+00000000000000"
+      "href": "tel:+00000000000000",
+      "disclose": true
     },
     {
       "icon": "At",
       "text": "test@example.com",
-      "href": "mailto:test@example.com"
+      "href": "mailto:test@example.com",
+      "disclose": true
     },
     {
       "icon": "Globe",
       "text": "Website",
-      "href": "https://github.com/helmid/"
+      "href": "https://github.com/helmid/",
+      "disclose": true
     },
     {
       "icon": "Github",
       "text": "github.com/helmid",
-      "href": "https://github.com/helmid/"
+      "href": "https://github.com/helmid/",
+      "disclose": true
     },
     {
       "icon": "Globe",
       "text": "Some URL",
-      "href": "https://github.com/helmid/"
+      "href": "https://github.com/helmid/",
+      "disclose": true
     }
   ],
   "sections": [
@@ -45,6 +51,9 @@ class TestCvData {
         {
           "type": "about",
           "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+          "country": "Lorem ipsum",
+          "operatingRadius": "Lorem ipsum: Lorem ipsum",
+          "workingMode": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
           "barchart": [
             {
               "title": "Basic skill 1",

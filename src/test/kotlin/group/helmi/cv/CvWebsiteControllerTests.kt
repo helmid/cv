@@ -44,7 +44,21 @@ class CvWebsiteControllerTests(@Autowired private val wac: WebApplicationContext
 
     @Test
     fun `test website load`() {
-        val result = mockMvc.get("https://localhost:$port").andReturn()
+        expect_200("https://localhost:$port")
+    }
+
+    @Test
+    fun `test website load_privacy`() {
+        expect_200("https://localhost:$port/gdpr")
+    }
+
+    @Test
+    fun `test website load imprint`() {
+        expect_200("https://localhost:$port/imprint")
+    }
+
+    private fun expect_200(url: String) {
+        val result = mockMvc.get(url).andReturn()
         Assertions.assertEquals(HttpStatus.OK.value(), result.response.status, "Expected HTTP Ok (200)")
         Assertions.assertEquals(
             "text/html;charset=UTF-8",
