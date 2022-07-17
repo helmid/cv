@@ -58,10 +58,10 @@
                         <p class="category text-white" th:text="${cvWebsiteDTO.cv.jobTitle}">Job Description</p><a
                             class="btn btn-primary smooth-scroll mr-2" data-aos="zoom-in"
                             data-aos-anchor="data-aos-anchor" href=""
-                            th:href="'#' + ${cvWebsiteDTO.contact.target.id}">Hire Me</a>
+                            th:href="'#' + ${cvWebsiteDTO.contact.target.id}" th:text="#{hire_me}">Hire Me</a>
                         <a class="btn btn-primary" data-aos="zoom-in" data-aos-anchor="data-aos-anchor"
                            href="pdfDownload"
-                           target="_blank">Request CV</a>
+                           target="_blank" th:text="#{request_cv}">Request CV</a>
                     </div>
                 </div>
                 <div class="section">

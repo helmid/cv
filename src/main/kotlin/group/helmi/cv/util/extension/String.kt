@@ -1,6 +1,6 @@
 package group.helmi.cv.util.extension
 
-import group.helmi.cv.config.language.Translator
+import group.helmi.cv.config.localization.Translator
 
 fun String.toKebapCase() = concatAndSnakeCase().replace("(?<=.)(?=\\p{Upper})".toRegex(), "-").lowercase()
 
