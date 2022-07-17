@@ -82,11 +82,6 @@ data class ColsEntryDTO (
     val barchart: List<ChartItemDTO>?
 ): EntryDTO()
 
-data class LinkableTextDTO(
-    val url: String?,
-    val text: String
-)
-
 data class ChartItemDTO(
     val title: String,
     val value: Double

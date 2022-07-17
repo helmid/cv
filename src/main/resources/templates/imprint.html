@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="noindex" name="robots">
     <script th:replace="fragments/head :: head"></script>
+    <script src="js/xor.js"></script>
 </head>
 <body>
 <header th:replace="fragments/head :: simpleHeader"></header>
@@ -16,12 +17,76 @@
         <div class="container">
             <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
                 <div class="row">
-                    <div class="col-lg-6 col-md-12">
+                    <div class="col-lg-12">
                         <div class="card-body">
-                            <p>Here comes the pain... <a href="javascript:revokeConsent()"
-                                                         th:text="#{cookie_consent_revoke_text}">Revoke cookie
-                                decision</a>
+                            <h5 th:utext="#{imprint_legal_hint_title}">imprint_legal_hint_title</h5>
+                            <p th:utext="${imprintDTO.companyName}">Company name</p>
+                            <h6 th:utext="#{imprint_address_title}">imprint_address_title</h6>
+                            <p>
+                                <span th:utext="${imprintDTO.address.street}">street</span>&nbsp;
+                                <span th:utext="${imprintDTO.address.houseNo}">house no</span><br>
+                                <span th:if="${imprintDTO.address.co != null}">
+                                    <span th:utext="#{imprint_address_co}">c/o</span>&nbsp;<span
+                                        th:utext="${imprintDTO.address.co}">co name</span><br>
+                                </span>
+                                <span th:utext="${imprintDTO.address.postalCode}">postal code</span>&nbsp;
+                                <span th:utext="${imprintDTO.address.city}">city</span><br>
+                                <span th:utext="${imprintDTO.address.country}">country</span>
                             </p>
+                            <h6 th:utext="#{imprint_contact_title}">imprint_contact_title</h6>
+                            <p>
+                                <span th:utext="#{imprint_phone_title}">imprint_phone_title</span>&nbsp;<span
+                                    id="insert_1"></span><br>
+                                <span th:utext="#{imprint_email_title}">imprint_email_title</span>&nbsp;<span
+                                    id="insert_2"></span>
+                            </p>
+                            <h6 th:utext="#{imprint_representative_title}">imprint_representative_title</h6>
+                            <p th:utext="${imprintDTO.representative}">representative</p>
+                            <h6 th:utext="#{imprint_vat_id_title}">imprint_vat_id_title</h6>
+                            <p th:utext="${imprintDTO.vatId}">vatId</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" th:if="${imprintDTO.insurance != null}">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h6 th:utext="#{imprint_insurance_title}">imprint_insurance_title</h6>
+                            <p th:utext="${imprintDTO.insurance.name}">insurance</p>
+                            <p th:if="${imprintDTO.insurance.address != null}">
+                                <span th:utext="${imprintDTO.insurance.address.street}">street</span>&nbsp;
+                                <span th:utext="${imprintDTO.insurance.address.houseNo}">house no</span><br>
+                                <span th:if="${imprintDTO.insurance.address.co != null}">
+                                    <span th:utext="#{imprint_address_co}">c/o</span>&nbsp;<span
+                                        th:utext="${imprintDTO.insurance.address.co}">co name</span><br>
+                                </span>
+                                <span th:utext="${imprintDTO.insurance.address.postalCode}">postal code</span>&nbsp;
+                                <span th:utext="${imprintDTO.insurance.address.city}">city</span><br>
+                                <span th:utext="${imprintDTO.insurance.address.country}">country</span>
+                            </p>
+                            <h6 th:utext="#{imprint_insurance_covarage_region_title}">
+                                imprint_insurance_covarage_region_title</h6>
+                            <p th:utext="${imprintDTO.insurance.scope}">scope</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" th:if="${imprintDTO.imageSources.size() != 0}">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{imprint_website_info_title}">imprint_website_info_title</h5>
+                            <h6 th:utext="#{imprint_website_copyright_notices_title}">
+                                imprint_website_copyright_notices_title</h6>
+                            <th:block th:each="imageSource : ${imprintDTO.imageSources}">
+                                <p><a href="/" th:href="${imageSource.url}"><span th:utext="${imageSource.url}"></span></a>&nbsp;-&nbsp;<span
+                                        th:utext="${imageSource.text}"></span></p>
+                            </th:block>
                         </div>
                     </div>
                 </div>
@@ -29,4 +94,10 @@
         </div>
     </div>
 </div>
+<script>
+    window.addEventListener('load', function () {
+        document.getElementById('insert_1').innerText = xor(atob("[[${imprintDTO.phone}]]"), atob("[[${imprintKey}]]"));
+        document.getElementById('insert_2').innerText = xor(atob("[[${imprintDTO.email}]]"), atob("[[${imprintKey}]]"));
+    });
+</script>
 </body>

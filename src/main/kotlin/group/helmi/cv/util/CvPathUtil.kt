@@ -9,6 +9,7 @@ object CvPathUtil {
     private const val baseDataPathName = "data"
     private const val cvFilename = "cv.json"
     private const val contactFilename = "contact.json"
+    private const val imprintFilename = "imprint.json"
     private const val profilePicture = "cvProfilePicture.webp"
     val baseOutputPath = getOutputPath()
     const val defaultClsFileName = "developercv.cls"
@@ -22,6 +23,8 @@ object CvPathUtil {
     fun getCvJson(): String = getDataFile(cvFilename)
 
     fun getContactJson(): String = getDataFile(contactFilename)
+
+    fun getImprintJson(): String = getDataFile(imprintFilename)
 
     fun getProfilePicture(addWebSrcPrefix: Boolean): String {
         val path = FileUtil.getPath(baseDataPathName, listOf(profilePicture))

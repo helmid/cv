@@ -2,7 +2,7 @@ package group.helmi.cv
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import group.helmi.cv.controller.DocumentController
+import group.helmi.cv.controller.api.DocumentController
 import group.helmi.cv.data.TestCvData
 import group.helmi.cv.dto.CvDTO
 import group.helmi.cv.util.FileUtil

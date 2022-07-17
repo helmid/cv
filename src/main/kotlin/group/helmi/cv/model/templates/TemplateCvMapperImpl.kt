@@ -1,10 +1,11 @@
 package group.helmi.cv.model.templates
 
 import group.helmi.cv.dto.*
+import group.helmi.cv.mapper.LinkableTextDTOMapper
 import group.helmi.cv.model.CvPermission
 
 abstract class TemplateCvMapperImpl : TemplateCvMapper {
-    fun formatCv(cvDTO: CvDTO, cvPermission: CvPermission): CvDTO {
+    override fun formatCv(cvDTO: CvDTO, cvPermission: CvPermission): CvDTO {
         val contact = cvDTO.contact.map { formatContact(it) }
             .filter { cvPermission.contactDisclosureAllowed || it.disclose }
         return CvDTO(
@@ -73,7 +74,7 @@ abstract class TemplateCvMapperImpl : TemplateCvMapper {
             end = formatString(educationEntryDTO.end),
             title = formatString(educationEntryDTO.title),
             facility = formatString(educationEntryDTO.facility),
-            content = formatLinkableText(educationEntryDTO.content)
+            content = LinkableTextDTOMapper.format(this, educationEntryDTO.content)
         )
     }
 
@@ -88,13 +89,6 @@ abstract class TemplateCvMapperImpl : TemplateCvMapper {
         return ChartItemDTO(
             title = formatString(chartItemDTO.title),
             value = chartItemDTO.value
-        )
-    }
-
-    private fun formatLinkableText(linkableTextDTO: LinkableTextDTO): LinkableTextDTO {
-        return LinkableTextDTO(
-            text = formatString(linkableTextDTO.text),
-            url = linkableTextDTO.url
         )
     }
 }

@@ -20,7 +20,7 @@
         <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
             <div class="container">
                 <div class="navbar-translate"><a class="navbar-brand" href="#" rel="tooltip"
-                                                 th:text="${cvWebsiteDTO.cv.firstName} + '&nbsp;' + ${cvWebsiteDTO.cv.lastName}">Name</a>
+                                                 th:utext="${cvWebsiteDTO.cv.firstName} + '&nbsp;' + ${cvWebsiteDTO.cv.lastName}">Name</a>
                     <button aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"
                             class="navbar-toggler navbar-toggler"
                             data-target="#navigation" data-toggle="collapse" type="button"><span
@@ -32,7 +32,7 @@
                         <th:block th:each="section : ${cvWebsiteDTO.cv.sections}">
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="#section"
                                                     th:href="'#' + ${cvWebsiteDTO.sectionIds[section.title]}"
-                                                    th:text="${section.title}">Section</a></li>
+                                                    th:utext="${section.title}">Section</a></li>
                         </th:block>
                     </ul>
                 </div>
@@ -53,15 +53,15 @@
                                                                        th:src="${cvWebsiteDTO.cvProfilePicture}"/></a>
                         </div>
                         <div class="h2 title"
-                             th:text="${cvWebsiteDTO.cv.firstName} + '&nbsp;' + ${cvWebsiteDTO.cv.lastName}">Name
+                             th:utext="${cvWebsiteDTO.cv.firstName} + '&nbsp;' + ${cvWebsiteDTO.cv.lastName}">Name
                         </div>
-                        <p class="category text-white" th:text="${cvWebsiteDTO.cv.jobTitle}">Job Description</p><a
+                        <p class="category text-white" th:utext="${cvWebsiteDTO.cv.jobTitle}">Job Description</p><a
                             class="btn btn-primary smooth-scroll mr-2" data-aos="zoom-in"
                             data-aos-anchor="data-aos-anchor" href=""
-                            th:href="'#' + ${cvWebsiteDTO.contact.target.id}" th:text="#{hire_me}">Hire Me</a>
+                            th:href="'#' + ${cvWebsiteDTO.contact.target.id}" th:utext="#{hire_me}">Hire Me</a>
                         <a class="btn btn-primary" data-aos="zoom-in" data-aos-anchor="data-aos-anchor"
                            href="pdfDownload"
-                           target="_blank" th:text="#{request_cv}">Request CV</a>
+                           target="_blank" th:utext="#{request_cv}">Request CV</a>
                     </div>
                 </div>
                 <div class="section">
@@ -86,9 +86,9 @@
 <footer class="footer">
     <div class="container text-center">
         <a class="btn btn-link" href="/imprint.html" target="_self" th:href="#{imprint_path}"
-           th:text="#{imprint_link_text}">Imprint</a>
+           th:utext="#{imprint_link_text}">Imprint</a>
         <a class="btn btn-link" href="/privacy.html" target="_self" th:href="#{gdpr_path}"
-           th:text="#{privacy_and_cookies_link_text}">Privacy and cookies</a>
+           th:utext="#{privacy_and_cookies_link_text}">Privacy and cookies</a>
     </div>
 </footer>
 <script src="js/core/jquery.3.2.1.min.js"></script>

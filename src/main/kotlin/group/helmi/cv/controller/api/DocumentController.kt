@@ -1,4 +1,4 @@
-package group.helmi.cv.controller
+package group.helmi.cv.controller.api
 
 import group.helmi.cv.dto.CvDTO
 import group.helmi.cv.model.MimeTypedResource
