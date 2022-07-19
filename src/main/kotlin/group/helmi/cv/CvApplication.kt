@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class CrawlableCvApplication
+class CvApplication
 
 fun main(args: Array<String>) {
-	runApplication<CrawlableCvApplication>(*args)
+	runApplication<CvApplication>(*args)
 }

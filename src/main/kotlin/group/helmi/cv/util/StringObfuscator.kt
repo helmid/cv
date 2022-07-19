@@ -8,9 +8,9 @@ object StringObfuscator {
         return UUID.randomUUID().toString().toByteArray()
     }
 
-    fun crypt(plaintext: String, key: ByteArray): String {
-        var crypt = plaintext.toByteArray()
-        plaintext.forEachIndexed { index, plaintextByte ->
+    fun crypt(plaintext: ByteArray, key: ByteArray): String {
+        val crypt = plaintext
+        plaintext.forEachIndexed { index, _ ->
             key.forEach { keyByte ->
                 crypt[index] = crypt[index] xor keyByte
             }

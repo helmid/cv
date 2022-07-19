@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.util.*
 
-
 class StringObfuscatorTests {
 
     @Test
@@ -27,8 +26,8 @@ class StringObfuscatorTests {
         assert(keys.size == plaintexts.size)
         plaintexts.forEachIndexed { index, _ ->
             val crypt = StringObfuscator.crypt(plaintexts[index].toByteArray(), keys[index].toByteArray())
-            val plain = StringObfuscator.crypt(crypt, keys[index].toByteArray())
-            Assertions.assertEquals(plaintexts[index], String(plain))
+            val plain = StringObfuscator.crypt(Base64.getDecoder().decode(crypt), keys[index].toByteArray())
+            Assertions.assertEquals(plaintexts[index], String(Base64.getDecoder().decode(plain)))
         }
 
     }
