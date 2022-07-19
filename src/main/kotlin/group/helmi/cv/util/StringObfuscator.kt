@@ -9,12 +9,11 @@ object StringObfuscator {
     }
 
     fun crypt(plaintext: ByteArray, key: ByteArray): String {
-        val crypt = plaintext
         plaintext.forEachIndexed { index, _ ->
             key.forEach { keyByte ->
-                crypt[index] = crypt[index] xor keyByte
+                plaintext[index] = plaintext[index] xor keyByte
             }
         }
-        return Base64.getEncoder().encodeToString(crypt)
+        return Base64.getEncoder().encodeToString(plaintext)
     }
 }
