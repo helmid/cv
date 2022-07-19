@@ -28,11 +28,11 @@ object Header {
         var right = ""
         if (contact.size > 1) {
             //first half of the array plus the odd one if exists
-            val leftEnd = contact.size / 2 - 1 + contact.size % 2
+            val leftEnd = contact.size / 2 + contact.size % 2
             contact.subList(0, leftEnd).forEach {
                 left = "${left}${makeIconEntry(it)}"
             }
-            contact.subList(leftEnd + 1, contact.size - 1).forEach {
+            contact.subList(leftEnd, contact.size).forEach {
                 right = "${right}${makeIconEntry(it)}"
             }
         }
