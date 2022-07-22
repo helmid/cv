@@ -11,6 +11,7 @@
     - [ ] Android
     - [ ] Web
 - [ ] Automate all the things
+- [ ] Write some useful tests, not just coverage
 
 ## Getting started
 
