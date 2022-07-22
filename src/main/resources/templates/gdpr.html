@@ -11,15 +11,265 @@
 <header th:replace="fragments/head :: simpleHeader"></header>
 <div class="page-content">
     <div th:replace="fragments/content :: simpleContentHeader(#{privacy_and_cookies_title})"></div>
-    <div class="section" id="gdpr">
+    <div class="section" id="privacy_legal_information">
         <div class="container">
             <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
                 <div class="row">
-                    <div class="col-lg-6 col-md-12">
+                    <div class="col-lg-12">
                         <div class="card-body">
-                            <p>Here comes the pain... <a href="javascript:revokeConsent()"
-                                                         th:utext="#{cookie_consent_revoke_text}">Revoke cookie
-                                decision</a>
+                            <h5 th:utext="#{privacy_legal_information_title}"></h5>
+                            <h6 th:utext="#{privacy_legal_responsible_position_section_title}">
+                                privacy_legal_responsible_position_section_title</h6>
+                            <h7 th:utext="#{privacy_legal_responsible_position_title}">
+                                privacy_legal_responsible_position_title>
+                            </h7>
+                            <p>
+                                <span th:utext="${gdprDTO.responsibleEntity}">responsibleEntity</span><br>
+                                <span th:utext="${gdprDTO.address.street}">street</span>&nbsp;
+                                <span th:utext="${gdprDTO.address.houseNo}">house no</span><br>
+                                <span th:if="${gdprDTO.address.co != null}">
+                                    <span th:utext="#{address_co}">c/o</span>&nbsp;<span
+                                        th:utext="${gdprDTO.address.co}">co name</span><br>
+                                </span>
+                                <span th:utext="${gdprDTO.address.postalCode}">postal code</span>&nbsp;
+                                <span th:utext="${gdprDTO.address.city}">city</span><br>
+                                <span th:utext="${gdprDTO.address.country}">country</span>
+                            </p>
+                            <p th:utext="#{privacy_legal_responsible_position_info}">
+                                privacy_legal_responsible_position_info</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="privacy_legal_data_processing">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{privacy_legal_data_processing_section_title}">
+                                privacy_legal_data_processing_section_title</h5>
+                            <p>
+                                <span th:utext="#{privacy_legal_cookie_consent_revoke_text_1}"></span>&nbsp;<a
+                                    href="javascript:revokeConsent()"
+                                    th:utext="#{privacy_legal_cookie_consent_revoke_text_2}">privacy_legal_cookie_consent_revoke_text_2</a>
+                            </p>
+                            <p th:utext="#{privacy_legal_data_processing_text}">privacy_legal_data_processing_text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="privacy_legal_complaint">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{privacy_legal_complaint_section_title}">
+                                privacy_legal_complaint_section_title</h5>
+                            <p th:utext="#{privacy_legal_complaint_section_text(#{privacy_legal_complaint_section_text_link})}">
+                                privacy_legal_complaint_section_text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="privacy_data_portability">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{privacy_data_portability_section_title}">
+                                privacy_data_portability_section_title</h5>
+                            <p th:utext="#{privacy_data_portability_text}">privacy_data_portability_text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="privacy_data_information">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{privacy_data_information_section_title}">
+                                privacy_data_information_section_title</h5>
+                            <p th:utext="#{privacy_data_information_text}">privacy_data_information_text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="privacy_encryption">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{privacy_encryption_section_title}">privacy_encryption_section_title</h5>
+                            <p th:utext="#{privacy_encryption_text}">privacy_encryption_text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="privacy_server_log">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{privacy_server_log_section_title}">privacy_server_log_section_title</h5>
+                            <p th:utext="#{privacy_server_log_text}">privacy_server_log_text</p>
+                            <ul>
+                                <li th:utext="#{privacy_server_log_list_item_1}"></li>
+                                <li th:utext="#{privacy_server_log_list_item_2}"></li>
+                                <li th:utext="#{privacy_server_log_list_item_3}"></li>
+                                <li th:utext="#{privacy_server_log_list_item_4}"></li>
+                                <li th:utext="#{privacy_server_log_list_item_5}"></li>
+                                <li th:utext="#{privacy_server_log_list_item_6}"></li>
+                                <li th:utext="#{privacy_server_log_list_item_7}"></li>
+                            </ul>
+                            <p th:utext="#{privacy_server_log_info}">privacy_server_log_info</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="privacy_contact_form">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{privacy_contact_form_section_title}">privacy_contact_form_section_title</h5>
+                            <p th:utext="#{privacy_contact_form_text_1}">privacy_contact_form_text_1</p>
+                            <p th:utext="#{privacy_contact_form_text_2}">privacy_contact_form_text_2</p>
+                            <p th:utext="#{privacy_contact_form_text_3}">privacy_contact_form_text_3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="privacy_cookies">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{privacy_cookies_section_title}">privacy_cookies_section_title</h5>
+                            <p th:utext="#{privacy_cookies_text_1}">privacy_cookies_text_1</p>
+                            <p th:utext="#{privacy_cookies_text_2}">privacy_cookies_text_2</p>
+                            <p th:utext="#{privacy_cookies_text_3}">privacy_cookies_text_3</p>
+                            <p th:utext="#{privacy_cookies_text_4}">privacy_cookies_text_4</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="privacy_google_analytics">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{privacy_google_analytics_section_title}">
+                                privacy_google_analytics_section_title</h5>
+                            <p th:utext="#{privacy_google_analytics_general_text_1}">
+                                privacy_google_analytics_general_text_1</p>
+                            <p th:utext="#{privacy_google_analytics_general_text_2}">
+                                privacy_google_analytics_general_text_2</p>
+                            <p th:utext="#{privacy_google_analytics_general_text_3}">
+                                privacy_google_analytics_general_text_3</p>
+                            <h6 th:utext="#{privacy_google_analytics_ip_title}">privacy_google_analytics_ip_title</h6>
+                            <p th:utext="#{privacy_google_analytics_ip_text}">privacy_google_analytics_ip_text</p>
+                            <h6 th:utext="#{privacy_google_analytics_plugin_title}">
+                                privacy_google_analytics_plugin_title</h6>
+                            <p th:utext="#{privacy_google_analytics_plugin_text(#{privacy_google_analytics_plugin_text_link})}">
+                                privacy_google_analytics_plugin_text</p>
+                            <h6 th:utext="#{privacy_google_analytics_disagreement_title}">
+                                privacy_google_analytics_disagreement_title</h6>
+                            <p th:utext="#{privacy_google_analytics_disagreement_text_1}">
+                                privacy_google_analytics_disagreement_text_1</p>
+                            <p th:utext="#{privacy_google_analytics_disagreement_text_2(#{privacy_google_analytics_disagreement_text_2_link})}">
+                                privacy_google_analytics_disagreement_text_2</p>
+                            <h6 th:utext="#{privacy_google_analytics_order_processing_title}">
+                                privacy_google_analytics_order_processing_title</h6>
+                            <p th:utext="#{privacy_google_analytics_order_processing_text}">
+                                privacy_google_analytics_order_processing_text</p>
+                            <h6 th:utext="#{privacy_google_analytics_order_demographic_data_title}">
+                                privacy_google_analytics_order_demographic_data_title</h6>
+                            <p th:utext="#{privacy_google_analytics_order_demographic_data_text}">
+                                privacy_google_analytics_order_demographic_data_text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="privacy_google_ad_words">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{privacy_google_ad_words_section_title}"></h5>
+                            <p th:utext="#{privacy_google_ad_words_text_1}">privacy_google_ad_words_text_1</p>
+                            <p th:utext="#{privacy_google_ad_words_text_2}">privacy_google_ad_words_text_2</p>
+                            <p th:utext="#{privacy_google_ad_words_text_3}">privacy_google_ad_words_text_3</p>
+                            <p th:utext="#{privacy_google_ad_words_text_4}">privacy_google_ad_words_text_4</p>
+                            <p th:utext="#{privacy_google_ad_words_text_5(#{privacy_google_ad_words_text_5_link})}">
+                                privacy_google_ad_words_text_5</p>
+                            <p th:utext="#{privacy_google_ad_words_text_6}">privacy_google_ad_words_text_6</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="privacy_google_web_fonts">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{privacy_google_web_fonts_section_title}">
+                                privacy_google_web_fonts_section_title</h5>
+                            <p th:utext="#{privacy_google_web_fonts_text_1}">privacy_google_web_fonts_text_1</p>
+                            <p th:utext="#{privacy_google_web_fonts_text_2}">privacy_google_web_fonts_text_2</p>
+                            <p th:utext="#{privacy_google_web_fonts_text_3}">privacy_google_web_fonts_text_3</p>
+                            <p th:utext="#{privacy_google_web_fonts_text_4(#{privacy_google_web_fonts_text_4_link_1}, #{privacy_google_web_fonts_text_4_link_2})}">
+                                privacy_google_web_fonts_text_4</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="privacy_copyright_note">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{privacy_copyright_note_section_title}">
+                                privacy_copyright_note_section_title</h5>
+                            <p>
+                                <span th:utext="#{privacy_copyright_note_text(#{privacy_copyright_note_text_link})}">privacy_copyright_note_text</span>
+                                <span th:utext="#{privacy_copyright_note_addendum(#{privacy_copyright_note_addendum_link})}"></span>
                             </p>
                         </div>
                     </div>

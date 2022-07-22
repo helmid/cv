@@ -1,8 +1,8 @@
 # CV
 
-## So much to do, so little time - //TODO
+## //TODO
 
-- [ ] Create Docker Container
+- [x] Create Docker Container
 - [x] TexTemplate
 - [x] Basic WebService to create rendered documents (preferably PDF)
 - [ ] Roles/Rights model + Access control
