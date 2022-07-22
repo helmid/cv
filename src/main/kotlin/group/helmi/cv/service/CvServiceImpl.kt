@@ -27,7 +27,7 @@ class CvServiceImpl: CvService {
     }
 
     private fun createAndCompileTex(id: String, cvDTO: CvDTO): String {
-        val cvPermission = CvPermission(contactDisclosureAllowed = true)
+        val cvPermission = CvPermission(contactDisclosureAllowed = false)
         val source = Cv.make(TexCvMapper.formatCv(cvDTO, cvPermission))
         val filename = makeFilename(cvDTO)
         return if (writeFile(source, filename, listOf(id))) {

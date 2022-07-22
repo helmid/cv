@@ -10,8 +10,8 @@ object HtmlImprintMapper {
         var phone = StringMapperWeb.formatString(imprintDTO.phone)
         var email = StringMapperWeb.formatString(imprintDTO.email)
         if (key != null) {
-            phone = StringObfuscator.crypt(phone, key)
-            email = StringObfuscator.crypt(email, key)
+            phone = StringObfuscator.crypt(phone.toByteArray(), key)
+            email = StringObfuscator.crypt(email.toByteArray(), key)
         }
         return ImprintDTO(
             companyName = StringMapperWeb.formatString(imprintDTO.companyName),

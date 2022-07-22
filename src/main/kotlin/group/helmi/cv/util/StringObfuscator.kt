@@ -8,13 +8,12 @@ object StringObfuscator {
         return UUID.randomUUID().toString().toByteArray()
     }
 
-    fun crypt(plaintext: String, key: ByteArray): String {
-        var crypt = plaintext.toByteArray()
-        plaintext.forEachIndexed { index, plaintextByte ->
+    fun crypt(plaintext: ByteArray, key: ByteArray): String {
+        plaintext.forEachIndexed { index, _ ->
             key.forEach { keyByte ->
-                crypt[index] = crypt[index] xor keyByte
+                plaintext[index] = plaintext[index] xor keyByte
             }
         }
-        return Base64.getEncoder().encodeToString(crypt)
+        return Base64.getEncoder().encodeToString(plaintext)
     }
 }

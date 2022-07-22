@@ -3,6 +3,7 @@ package group.helmi.cv.model.templates.tex.cv1
 import group.helmi.cv.dto.ContactItemDTO
 
 object Header {
+    private const val MAX_CONTACT_RIGHT_COL_LENGTH = 25
     fun make(firstName: String, lastName: String, jobTitle: String, contact: List<ContactItemDTO>): String {
         return "${makeNameAndJobTitle(firstName, lastName, jobTitle)}\n${makeContact(contact)}"
     }
@@ -27,26 +28,31 @@ object Header {
         var left = ""
         var right = ""
         if (contact.size > 1) {
+            val oversized = contact.filter { it.text.length > MAX_CONTACT_RIGHT_COL_LENGTH }
+            val fitting = contact.filter { it.text.length <= MAX_CONTACT_RIGHT_COL_LENGTH }
             //first half of the array plus the odd one if exists
-            val leftEnd = contact.size / 2 - 1 + contact.size % 2
-            contact.subList(0, leftEnd).forEach {
+            val leftEnd = fitting.size / 2 + fitting.size % 2
+            fitting.subList(0, leftEnd).forEach {
                 left = "${left}${makeIconEntry(it)}"
             }
-            contact.subList(leftEnd + 1, contact.size - 1).forEach {
-                right = "${right}${makeIconEntry(it)}"
+            oversized.forEach {
+                left = "${left}${makeIconEntry(it)}"
+            }
+            fitting.subList(leftEnd, fitting.size).forEach {
+                right = "$right${makeIconEntry(it)}"
             }
         }
         val leftMinipage = if (left.isNotEmpty()) """
                 \begin{minipage}[t]{0.3\textwidth} 
                 	\vspace{-\baselineskip}
-                	${left}
+                	$left
                 \end{minipage}
             """.trimIndent() else ""
 
         val rightMinipage = if (right.isNotEmpty()) """
-                \begin{minipage}[t]{0.24\textwidth} 
+                \begin{minipage}[t]{0.3\textwidth} 
                 	\vspace{-\baselineskip}
-                	${right}
+                	$right
                 \end{minipage}
             """.trimIndent() else ""
         return "${leftMinipage}${rightMinipage}"
