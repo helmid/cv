@@ -14,11 +14,6 @@ object CvPathUtil {
     private const val gdprFilenameKey = "gdpr_source"
     private const val profilePicture = "cvProfilePicture.webp"
 
-    private val cvFilename = Translator.toLocale(cvFilenameKey)
-    private val contactFilename = Translator.toLocale(contactFilenameKey)
-    private val imprintFilename = Translator.toLocale(imprintFilenameKey)
-    private val gdprFilename = Translator.toLocale(gdprFilenameKey)
-
     val baseOutputPath = getOutputPath()
     const val defaultClsFileName = "developercv.cls"
     const val pdfFileType = "pdf"
@@ -28,13 +23,13 @@ object CvPathUtil {
         return FileUtil.getPath(baseOutputPathName, components)
     }
 
-    fun getCvJson(): String = getDataFile(cvFilename)
+    fun getCvJson(): String = getDataFile(Translator.toLocale(cvFilenameKey))
 
-    fun getContactJson(): String = getDataFile(contactFilename)
+    fun getContactJson(): String = getDataFile(Translator.toLocale(contactFilenameKey))
 
-    fun getImprintJson(): String = getDataFile(imprintFilename)
+    fun getImprintJson(): String = getDataFile(Translator.toLocale(imprintFilenameKey))
 
-    fun getGdprJson(): String = getDataFile(gdprFilename)
+    fun getGdprJson(): String = getDataFile(Translator.toLocale(gdprFilenameKey))
 
     fun getProfilePicture(addWebSrcPrefix: Boolean): String {
         val path = FileUtil.getPath(baseDataPathName, listOf(profilePicture))

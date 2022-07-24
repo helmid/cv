@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
-
+<html th:lang="${language}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -34,6 +33,7 @@
                                                     th:href="'#' + ${cvWebsiteDTO.sectionIds[section.title]}"
                                                     th:utext="${section.title}">Section</a></li>
                         </th:block>
+                        <li class="nav-item"><a id="lang-toggle" class="nav-link smooth-scroll" th:href="${toggleLanguage.toggleValue}" th:utext="${toggleLanguage.localizedName}">Language</a></li>
                     </ul>
                 </div>
             </div>
@@ -122,13 +122,7 @@
            th:utext="#{privacy_and_cookies_link_text}">Privacy and cookies</a>
     </div>
 </footer>
-<script src="js/core/jquery.3.2.1.min.js"></script>
-<script src="js/core/popper.min.js"></script>
-<script src="js/core/bootstrap.min.js"></script>
-<script src="js/now-ui-kit.js"></script>
-<script src="js/aos.js"></script>
-<script src="scripts/main.js"></script>
-<script src="js/forms.js"></script>
+<script th:replace="fragments/scripts :: scripts"></script>
 </body>
 
 </html>
