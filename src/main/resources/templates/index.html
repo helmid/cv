@@ -49,8 +49,8 @@
                 </div>
                 <div class="container">
                     <div class="content-center">
-                        <div class="cc-profile-image"><a href="#"><img alt="Image"
-                                                                       th:src="${cvWebsiteDTO.cvProfilePicture}"/></a>
+                        <div class="cc-profile-image">
+                            <a href="#"><img alt="Image" th:src="${cvWebsiteDTO.cvProfilePicture}"/></a>
                         </div>
                         <div class="h2 title"
                              th:utext="${cvWebsiteDTO.cv.firstName} + '&nbsp;' + ${cvWebsiteDTO.cv.lastName}">Name
@@ -82,6 +82,37 @@
     <th:block th:each="section : ${cvWebsiteDTO.formattedSections}">
         <div th:remove="tag" th:utext="${section}"></div>
     </th:block>
+    <div class="section" id="contact-form">
+        <div class="container">
+            <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <div class="card-body">
+                    <form action="#" id="contact-form-group" method="POST" th:action="@{/}">
+                        <input id="contact-id" name="contact" th:value="${cvWebsiteDTO.contact.id}" type="hidden">
+                        <th:block th:each="input : ${cvWebsiteDTO.contact.input}">
+                            <div class="form-group col-md-12">
+                                <label class="col-form-label" th:for="${input.id}" th:if="${input.label != null}"
+                                       th:utext="${input.label}">Title</label>
+                                <textarea class="form-control" th:id="${input.id}" th:if="${input.type == 'textarea'}"
+                                          th:maxlength="${input.maxLength}" th:name="${input.name}"
+                                          th:placeholder="${input.placeholder}"
+                                          th:required="${input.required} ?: 'false'" th:type="${input.type}"></textarea>
+                                <input class="form-control" th:id="${input.id}" th:maxlength="${input.maxLength}"
+                                       th:name="${input.name}" th:placeholder="${input.placeholder}"
+                                       th:required="${input.required} ?: 'false'" th:type="${input.type}"
+                                       th:unless="${input.type == 'textarea'}">
+                            </div>
+                        </th:block>
+                        <div class="col-md-6">
+                            <button class="btn btn-primary pad" id="contact-submit-button"
+                                    th:title="${cvWebsiteDTO.contact.submit}" th:utext="${cvWebsiteDTO.contact.submit}"
+                                    type="submit">Send
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <footer class="footer">
     <div class="container text-center">
@@ -97,6 +128,7 @@
 <script src="js/now-ui-kit.js"></script>
 <script src="js/aos.js"></script>
 <script src="scripts/main.js"></script>
+<script src="js/forms.js"></script>
 </body>
 
 </html>

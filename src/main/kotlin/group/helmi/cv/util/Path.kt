@@ -10,8 +10,8 @@ object Path {
 
     object CvWebsite {
         /**
-         *  Must match with "target" in contact.json
+         *  Must match with "target" in contact.json and must be mapped in controller
          */
-        const val contactAction = "/contact"
+        const val formAction = "/"
     }
 }

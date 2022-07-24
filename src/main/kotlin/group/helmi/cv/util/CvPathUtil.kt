@@ -8,7 +8,7 @@ object CvPathUtil {
     private const val baseOutputPathName = "output"
     private const val baseDataPathName = "data"
     private const val cvFilename = "cv.json"
-    private const val contactFilename = "contact.json"
+    private const val contactFilename = "contactForm.json"
     private const val imprintFilename = "imprint.json"
     private const val gdprFilename = "gdpr.json"
     private const val profilePicture = "cvProfilePicture.webp"

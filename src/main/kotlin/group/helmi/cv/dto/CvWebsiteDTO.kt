@@ -3,7 +3,7 @@ package group.helmi.cv.dto
 data class CvWebsiteDTO(
     val meta: CvWebsiteMetaDTO,
     val cv: CvDTO,
-    val contact: WebsiteContactFormDTO,
+    val contact: HtmlFormDTO,
     val formattedSections: List<String>,
     val sectionIds: Map<String, String>,
     val cvProfilePicture: String
@@ -21,22 +21,4 @@ data class CvWebsiteOpenGraphDTO(
     val url: String,
     val type: String,
     val title: String
-)
-
-data class WebsiteContactFormDTO(
-    val target: FormTargetDTO,
-    val submit: String,
-    val input: List<InputFieldDTO>
-)
-
-data class FormTargetDTO(
-    val action: String,
-    val id: String
-)
-
-data class InputFieldDTO(
-    val type: String,
-    val name: String,
-    val placeholder: String,
-    val required: String?
 )
