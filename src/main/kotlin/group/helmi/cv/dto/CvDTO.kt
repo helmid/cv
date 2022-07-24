@@ -84,10 +84,11 @@ data class ColsEntryDTO (
 
 data class ChartItemDTO(
     val title: String,
+    val longTitle: String?,
     val value: Double
 ) {
     fun bubbleToLineChart(maxValue: Double): ChartItemDTO {
         val newValue = (value / maxValue * 100).roundToInt().toDouble()
-        return ChartItemDTO(title = title, value = newValue)
+        return ChartItemDTO(title = title, longTitle = longTitle, value = newValue)
     }
 }

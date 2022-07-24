@@ -30,9 +30,10 @@ object LineChart {
     }
 
     private fun makeColItem(item: ChartItemDTO): String {
+        val displayTitle = item.longTitle ?: item.title
         return """
             <div class="col-md-6">
-                <div class="progress-container progress-primary"><span class="progress-badge">${item.title}</span>
+                <div class="progress-container progress-primary"><span class="progress-badge">$displayTitle</span>
                     <div class="progress">
                         <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${item.value.toInt()}%;"></div>
                         <span class="progress-value">${item.value}%</span>
