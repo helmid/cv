@@ -60,7 +60,7 @@ abstract class TemplateCvMapperImpl : TemplateCvMapper {
     private fun formatHistory(historyEntryDTO: HistoryEntryDTO): EntryDTO {
         return HistoryEntryDTO(
             start = formatString(historyEntryDTO.start),
-            end = formaOptionalString(historyEntryDTO.end),
+            end = formatOptionalString(historyEntryDTO.end),
             jobTitle = formatString(historyEntryDTO.jobTitle),
             customer = formatString(historyEntryDTO.customer),
             description = formatString(historyEntryDTO.description),
@@ -88,6 +88,7 @@ abstract class TemplateCvMapperImpl : TemplateCvMapper {
     private fun formatChartItem(chartItemDTO: ChartItemDTO): ChartItemDTO {
         return ChartItemDTO(
             title = formatString(chartItemDTO.title),
+            longTitle = formatOptionalString(chartItemDTO.longTitle),
             value = chartItemDTO.value
         )
     }

@@ -19,7 +19,7 @@ object HtmlImprintMapper {
             phone = phone,
             email = email,
             representative = StringMapperWeb.formatString(imprintDTO.representative),
-            vatId = StringMapperWeb.formaOptionalString(imprintDTO.vatId),
+            vatId = StringMapperWeb.formatOptionalString(imprintDTO.vatId),
             insurance = formatInsurance(imprintDTO.insurance),
             imageSources = imprintDTO.imageSources.map { LinkableTextDTOMapper.format(StringMapperWeb, it) }
         )

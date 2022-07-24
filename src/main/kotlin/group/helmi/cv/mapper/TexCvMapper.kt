@@ -7,7 +7,7 @@ object TexCvMapper : TemplateCvMapperImpl() {
         return texify(string)
     }
 
-    override fun formaOptionalString(string: String?): String? {
+    override fun formatOptionalString(string: String?): String? {
         return if (string != null) texify(string) else null
     }
 

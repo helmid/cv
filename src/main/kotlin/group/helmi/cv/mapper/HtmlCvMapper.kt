@@ -9,8 +9,8 @@ object HtmlCvMapper : TemplateCvMapperImpl() {
         return StringMapperWeb.formatString(string)
     }
 
-    override fun formaOptionalString(string: String?): String? {
-        return StringMapperWeb.formaOptionalString(string)
+    override fun formatOptionalString(string: String?): String? {
+        return StringMapperWeb.formatOptionalString(string)
     }
 
     override fun formatFontAwesome(string: String): String {

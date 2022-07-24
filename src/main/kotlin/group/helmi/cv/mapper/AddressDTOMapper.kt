@@ -11,7 +11,7 @@ object AddressDTOMapper {
             postalCode = stringMapper.formatString(addressDTO.postalCode),
             city = stringMapper.formatString(addressDTO.city),
             country = stringMapper.formatString(addressDTO.country),
-            co = stringMapper.formaOptionalString(addressDTO.co)
+            co = stringMapper.formatOptionalString(addressDTO.co)
         )
     }
 }
