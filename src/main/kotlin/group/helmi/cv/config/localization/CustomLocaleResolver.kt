@@ -8,8 +8,8 @@ import org.springframework.web.servlet.LocaleResolver
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver
+import org.springframework.web.servlet.i18n.CookieLocaleResolver
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor
-import org.springframework.web.servlet.i18n.SessionLocaleResolver
 import java.util.*
 import javax.servlet.http.HttpServletRequest
 
@@ -37,7 +37,7 @@ class CustomLocaleResolver : AcceptHeaderLocaleResolver(), WebMvcConfigurer {
         registry.addInterceptor(localeChangeInterceptor())
     }
 
-    @Bean
+    @Bean("messageSource")
     fun messageSource(): ResourceBundleMessageSource {
         val rs = ResourceBundleMessageSource()
         rs.setBasename("messages")
@@ -55,8 +55,6 @@ class CustomLocaleResolver : AcceptHeaderLocaleResolver(), WebMvcConfigurer {
 
     @Bean
     fun localeResolver(): LocaleResolver {
-        val localeResolver = SessionLocaleResolver()
-        localeResolver.setDefaultLocale(Locale("en", "US"))
-        return localeResolver
+        return CookieLocaleResolver()
     }
 }
