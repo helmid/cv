@@ -1,5 +1,6 @@
 package group.helmi.cv.util
 
+import group.helmi.cv.config.localization.Translator
 import java.nio.file.Files
 import java.nio.file.Path
 import java.util.*
@@ -7,11 +8,17 @@ import java.util.*
 object CvPathUtil {
     private const val baseOutputPathName = "output"
     private const val baseDataPathName = "data"
-    private const val cvFilename = "cv.json"
-    private const val contactFilename = "contactForm.json"
-    private const val imprintFilename = "imprint.json"
-    private const val gdprFilename = "gdpr.json"
+    private const val cvFilenameKey = "cv_source"
+    private const val contactFilenameKey = "contact_form_source"
+    private const val imprintFilenameKey = "imprint_source"
+    private const val gdprFilenameKey = "gdpr_source"
     private const val profilePicture = "cvProfilePicture.webp"
+
+    private val cvFilename = Translator.toLocale(cvFilenameKey)
+    private val contactFilename = Translator.toLocale(contactFilenameKey)
+    private val imprintFilename = Translator.toLocale(imprintFilenameKey)
+    private val gdprFilename = Translator.toLocale(gdprFilenameKey)
+
     val baseOutputPath = getOutputPath()
     const val defaultClsFileName = "developercv.cls"
     const val pdfFileType = "pdf"

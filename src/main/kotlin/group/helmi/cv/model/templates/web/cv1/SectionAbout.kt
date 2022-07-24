@@ -1,5 +1,6 @@
 package group.helmi.cv.model.templates.web.cv1
 
+import group.helmi.cv.config.localization.Translator
 import group.helmi.cv.dto.AboutEntryDTO
 import group.helmi.cv.util.extension.toKebapCase
 import org.slf4j.LoggerFactory
@@ -33,17 +34,17 @@ object SectionAbout {
               </div>
               <div class="col-lg-6 col-md-12">
                 <div class="card-body">
-                  <div class="h4 mt-0 title">Basic Information</div>
+                  <div class="h4 mt-0 title">${Translator.toLocale("about_basic_information")}</div>
                   <div class="row mt-3">
-                    <div class="col-sm-4"><strong class="text-uppercase">Country:</strong></div>
+                    <div class="col-sm-4"><strong class="text-uppercase">${Translator.toLocale("about_country")}:</strong></div>
                     <div class="col-sm-8">${item.country}</div>
                   </div>
                   <div class="row mt-3">
-                    <div class="col-sm-4"><strong class="text-uppercase">Operating radius:</strong></div>
+                    <div class="col-sm-4"><strong class="text-uppercase">${Translator.toLocale("about_operating_radius")}:</strong></div>
                     <div class="col-sm-8">${item.operatingRadius}</div>
                   </div>
                   <div class="row mt-3">
-                    <div class="col-sm-4"><strong class="text-uppercase">Working modes:</strong></div>
+                    <div class="col-sm-4"><strong class="text-uppercase">${Translator.toLocale("about_working_modes")}:</strong></div>
                     <div class="col-sm-8">${item.workingMode}</div>
                   </div>
                 </div>
