@@ -61,9 +61,13 @@ class CvServiceImpl: CvService {
         filePathComponents.add("$filename.${CvPathUtil.texFileType}")
         val clsPathComponents = pathComponents.toMutableList()
         clsPathComponents.add(CvPathUtil.defaultClsFileName)
+        val imagePathComponents = pathComponents.toMutableList()
+        imagePathComponents.add("${CvPathUtil.profilePicture}.${CvPathUtil.pngFileType}")
         val cvFile = CvPathUtil.getOutputPath(components = filePathComponents).toFile()
         val clsFile = CvPathUtil.getOutputPath(components = clsPathComponents).toFile()
-        FileUtil.write(data, cvFile)
-        return FileUtil.write(Cls.clsData, clsFile)
+        val imageFile = CvPathUtil.getOutputPath(components = imagePathComponents).toFile()
+        CvPathUtil.getPngProfilePicture().toFile().copyTo(imageFile)
+        return FileUtil.write(Cls.clsData, clsFile) &&
+                FileUtil.write(data, cvFile)
     }
 }

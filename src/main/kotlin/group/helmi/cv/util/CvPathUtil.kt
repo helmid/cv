@@ -12,13 +12,14 @@ object CvPathUtil {
     private const val contactFilenameKey = "contact_form_source"
     private const val imprintFilenameKey = "imprint_source"
     private const val gdprFilenameKey = "gdpr_source"
-    private const val profilePicture = "cvProfilePicture.webp"
+    const val profilePicture = "cvProfilePicture"
 
     val baseOutputPath = getOutputPath()
     const val defaultClsFileName = "developercv.cls"
     const val pdfFileType = "pdf"
     const val texFileType = "tex"
-
+    const val webpFileType = "webp"
+    const val pngFileType = "png"
     fun getOutputPath(components: List<String> = listOf()): Path {
         return FileUtil.getPath(baseOutputPathName, components)
     }
@@ -31,8 +32,10 @@ object CvPathUtil {
 
     fun getGdprJson(): String = getDataFile(Translator.toLocale(gdprFilenameKey))
 
+    fun getPngProfilePicture(): Path = FileUtil.getPath(baseDataPathName, listOf("$profilePicture.$pngFileType"))
+
     fun getProfilePicture(addWebSrcPrefix: Boolean): String {
-        val path = FileUtil.getPath(baseDataPathName, listOf(profilePicture))
+        val path = FileUtil.getPath(baseDataPathName, listOf("$profilePicture.$webpFileType"))
         val base64 = String(Base64.getEncoder().encode(Files.readAllBytes(path)))
         var prefix = ""
         if (addWebSrcPrefix) {

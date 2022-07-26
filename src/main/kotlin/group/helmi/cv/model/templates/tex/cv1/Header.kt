@@ -3,14 +3,16 @@ package group.helmi.cv.model.templates.tex.cv1
 import group.helmi.cv.dto.ContactItemDTO
 
 object Header {
-    private const val MAX_CONTACT_RIGHT_COL_LENGTH = 25
     fun make(firstName: String, lastName: String, jobTitle: String, contact: List<ContactItemDTO>): String {
-        return "${makeNameAndJobTitle(firstName, lastName, jobTitle)}\n${makeContact(contact)}"
+        return """
+            ${makeNameAndJobTitle(firstName, lastName, jobTitle, makeContact(contact))}
+            ${makeImage()}
+        """.trimIndent()
     }
 
-    private fun makeNameAndJobTitle(firstName: String, lastName: String, jobTitle: String): String {
+    private fun makeNameAndJobTitle(firstName: String, lastName: String, jobTitle: String, contact: String): String {
         return """
-                \begin{minipage}[t]{0.46\textwidth} 
+                \begin{minipage}[t]{0.667\textwidth} 
                 	\vspace{-\baselineskip} % Required for vertically aligning minipages
                 	
                 	\colorbox{black}{{\HUGE\textcolor{white}{\textbf{\MakeUppercase{${firstName}}}}}} % First name
@@ -20,42 +22,32 @@ object Header {
                 	\vspace{6pt}
                 	
                 	{\huge ${jobTitle}} % Career or current job title
+                    $contact
                 \end{minipage}
             """.trimIndent()
     }
 
-    private fun makeContact(contact: List<ContactItemDTO>): String {
-        var left = ""
-        var right = ""
-        if (contact.size > 1) {
-            val oversized = contact.filter { it.text.length > MAX_CONTACT_RIGHT_COL_LENGTH }
-            val fitting = contact.filter { it.text.length <= MAX_CONTACT_RIGHT_COL_LENGTH }
-            //first half of the array plus the odd one if exists
-            val leftEnd = fitting.size / 2 + fitting.size % 2
-            fitting.subList(0, leftEnd).forEach {
-                left = "${left}${makeIconEntry(it)}"
-            }
-            oversized.forEach {
-                left = "${left}${makeIconEntry(it)}"
-            }
-            fitting.subList(leftEnd, fitting.size).forEach {
-                right = "$right${makeIconEntry(it)}"
-            }
-        }
-        val leftMinipage = if (left.isNotEmpty()) """
-                \begin{minipage}[t]{0.3\textwidth} 
-                	\vspace{-\baselineskip}
-                	$left
-                \end{minipage}
-            """.trimIndent() else ""
+    private fun makeImage(): String {
+        return """
+        \begin{minipage}[t]{0.333\textwidth} 
+            \vspace{-\baselineskip}
+	        \roundpic[xshift=0.5cm,yshift=-0.5cm]{5.8cm}{9cm}{cvProfilePicture}
+        \end{minipage}
+        """.trimIndent()
+    }
 
-        val rightMinipage = if (right.isNotEmpty()) """
-                \begin{minipage}[t]{0.3\textwidth} 
-                	\vspace{-\baselineskip}
-                	$right
-                \end{minipage}
-            """.trimIndent() else ""
-        return "${leftMinipage}${rightMinipage}"
+    private fun makeContact(contact: List<ContactItemDTO>): String {
+        var result = """
+            
+            \vspace{16pt}
+        """.trimIndent()
+        contact.forEach {
+            result = """
+                    $result
+                    ${makeIconEntry(it)}
+                """.trimIndent()
+        }
+        return result
     }
 
     private fun makeIconEntry(item: ContactItemDTO): String {
