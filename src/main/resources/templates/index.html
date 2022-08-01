@@ -114,14 +114,7 @@
         </div>
     </div>
 </div>
-<footer class="footer">
-    <div class="container text-center">
-        <a class="btn btn-link" href="/imprint.html" target="_self" th:href="#{imprint_path}"
-           th:utext="#{imprint_link_text}">Imprint</a>
-        <a class="btn btn-link" href="/privacy.html" target="_self" th:href="#{gdpr_path}"
-           th:utext="#{privacy_and_cookies_link_text}">Privacy and cookies</a>
-    </div>
-</footer>
+<div th:replace="fragments/footer :: footer"></div>
 <script th:replace="fragments/scripts :: scripts"></script>
 </body>
 

@@ -13,5 +13,6 @@ object Path {
          *  Must match with "target" in contact.json and must be mapped in controller
          */
         const val formAction = "/"
+        const val errorPath = "/error"
     }
 }

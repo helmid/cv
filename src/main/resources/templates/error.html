@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="noindex" name="robots">
+    <script th:replace="fragments/head :: head"></script>
+    <script src="js/xor.js"></script>
+</head>
+<body>
+<header th:replace="fragments/head :: simpleHeader"></header>
+<div class="page-content">
+    <div th:replace="fragments/content :: simpleContentHeader(#{error_title(${statusCode})})"></div>
+    <div class="section" id="imprint">
+        <div class="container">
+            <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-body">
+                            <h5 th:utext="#{error_status_codes_title}">error_status_codes_title</h5>
+                            <ul>
+                                <li th:utext="#{error_status_codes_1xx}">error_status_codes_1xx</li>
+                                <li th:utext="#{error_status_codes_2xx}">error_status_codes_2xx</li>
+                                <li th:utext="#{error_status_codes_3xx}">error_status_codes_3xx</li>
+                                <li th:utext="#{error_status_codes_4xx}">error_status_codes_4xx</li>
+                                <li th:utext="#{error_status_codes_5xx}">error_status_codes_5xx</li>
+                            </ul>
+                            <p th:utext="#{error_status_codes_wiki_link_text(#{error_status_codes_wiki_link})}">
+                                error_status_codes_wiki_link_text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+<script th:replace="fragments/scripts :: scripts"></script>
+<script>
+    window.addEventListener('load', function () {
+        document.getElementById('insert_1').innerText = xor(atob("[[${imprintDTO.phone}]]"), atob("[[${imprintKey}]]"));
+        document.getElementById('insert_2').innerText = xor(atob("[[${imprintDTO.email}]]"), atob("[[${imprintKey}]]"));
+    });
+</script>
+</body>
