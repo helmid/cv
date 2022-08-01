@@ -11,9 +11,10 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
 import org.springframework.mock.web.MockHttpServletRequest
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.get
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import org.springframework.web.context.WebApplicationContext
 import org.springframework.web.context.request.RequestContextHolder
@@ -49,21 +50,29 @@ class CvWebsiteControllerTests(@Autowired private val wac: WebApplicationContext
 
     @Test
     fun `test website load_privacy`() {
-        expect_200("https://localhost:$port/gdpr")
+        expect_200("https://localhost:$port/privacy.html")
     }
 
     @Test
     fun `test website load imprint`() {
-        expect_200("https://localhost:$port/imprint")
+        expect_200("https://localhost:$port/imprint.html")
     }
 
     private fun expect_200(url: String) {
-        val result = mockMvc.get(url).andReturn()
-        Assertions.assertEquals(HttpStatus.OK.value(), result.response.status, "Expected HTTP Ok (200)")
-        Assertions.assertEquals(
-            "text/html;charset=UTF-8",
-            result.response.getHeaders(HttpHeaders.CONTENT_TYPE).firstOrNull(),
-            "Expected text/html;charset=UTF-8 as content type"
-        )
+        val cookie = javax.servlet.http.Cookie("lang", "en")
+        mockMvc.perform(
+            MockMvcRequestBuilders.get(url)
+                .cookie(cookie)
+                .accept(MediaType.APPLICATION_JSON_VALUE)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+        ).andExpect { result ->
+            Assertions.assertEquals(HttpStatus.OK.value(), result.response.status, "Expected HTTP Ok (200)")
+            Assertions.assertEquals(
+                "text/html;charset=UTF-8",
+                result.response.getHeaders(HttpHeaders.CONTENT_TYPE).firstOrNull(),
+                "Expected text/html;charset=UTF-8 as content type"
+            )
+        }
+
     }
 }
