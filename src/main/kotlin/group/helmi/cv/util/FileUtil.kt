@@ -44,7 +44,7 @@ object FileUtil {
         } else {
             "Successfully deleted folder ${directory.absoluteFile}"
         }
-        logger.error(result)
+        if (!deleted) logger.error(result) else logger.info(result)
         return result
     }
 
