@@ -1,14 +1,14 @@
 package group.helmi.cv.model.templates.web.cv1
 
 import group.helmi.cv.dto.EducationEntryDTO
-import group.helmi.cv.util.extension.concatAndSnakeCase
+import group.helmi.cv.util.extension.concatAndCamelCase
 import group.helmi.cv.util.extension.toKebapCase
 
 object SectionEducation {
 
     fun make(title: String, items: List<EducationEntryDTO>): String {
         val cards = items
-            .mapIndexed { index, item -> makeCard(item, "${title.concatAndSnakeCase()}$index", index) }
+            .mapIndexed { index, item -> makeCard(item, "${title.concatAndCamelCase()}$index", index) }
             .joinToString("\n")
         val button = CollapsableWrapper.makeButton(title, items)
         return """

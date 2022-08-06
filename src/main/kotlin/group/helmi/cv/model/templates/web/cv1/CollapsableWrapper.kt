@@ -1,6 +1,6 @@
 package group.helmi.cv.model.templates.web.cv1
 
-import group.helmi.cv.util.extension.concatAndSnakeCase
+import group.helmi.cv.util.extension.concatAndCamelCase
 import group.helmi.cv.util.extension.localized
 
 object CollapsableWrapper {
@@ -18,7 +18,7 @@ object CollapsableWrapper {
 
     fun makeButton(title: String, items: List<Any>): String {
         if (items.size <= collapsedThreshold) return ""
-        val snakeTitle = title.concatAndSnakeCase()
+        val snakeTitle = title.concatAndCamelCase()
         val ids =
             List(items.size) { index -> if (index > collapsedThreshold) "$snakeTitle$index" else "" }.filter { it.isNotEmpty() }
                 .joinToString(" ")
