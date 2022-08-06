@@ -16,6 +16,7 @@ class StringUtilTest {
             "helloworld",
             "HW",
             "h",
+            "H ",
             ""
         )
     }
@@ -30,6 +31,7 @@ class StringUtilTest {
             "hello-world",
             "helloworld",
             "h-w",
+            "h",
             "h",
             ""
         )
@@ -50,6 +52,7 @@ class StringUtilTest {
             "HELLO_WORLD",
             "HELLOWORLD",
             "H_W",
+            "H",
             "H",
             ""
         )
