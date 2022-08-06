@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 
 class StringUtilTest {
     companion object {
-        val keys = listOf(
+        private val originalValues = listOf(
             "helloWorld",
             "helloWOrld",
             "hello World",
@@ -35,9 +35,9 @@ class StringUtilTest {
             "h",
             ""
         )
-        assert(keys.size == expected.size)
+        assert(originalValues.size == expected.size)
         expected.forEachIndexed { index, _ ->
-            val result = keys[index].toKebapCase()
+            val result = originalValues[index].toKebapCase()
             Assertions.assertEquals(expected[index], result)
         }
     }
@@ -56,9 +56,9 @@ class StringUtilTest {
             "H",
             ""
         )
-        assert(keys.size == expected.size)
+        assert(originalValues.size == expected.size)
         expected.forEachIndexed { index, _ ->
-            val result = keys[index].toScreamingSnakeCase()
+            val result = originalValues[index].toScreamingSnakeCase()
             Assertions.assertEquals(expected[index], result)
         }
     }
