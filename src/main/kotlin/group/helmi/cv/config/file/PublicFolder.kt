@@ -1,6 +1,9 @@
 package group.helmi.cv.config.file
 
+import java.util.*
+
 interface PublicFolder {
-    fun generatePublicFolder()
-    fun getPublicFolder(): String
+    fun generatePublicFolders()
+    fun getPublicFolder(locale: Locale): String
+    fun deletePublicFolders(): String
 }

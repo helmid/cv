@@ -3,9 +3,8 @@ package group.helmi.cv.controller.api
 import group.helmi.cv.dto.CvDTO
 import group.helmi.cv.model.MimeTypedResource
 import group.helmi.cv.service.CvService
+import group.helmi.cv.util.ControllerUtil
 import group.helmi.cv.util.Path
-import org.springframework.http.HttpHeaders
-import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
@@ -29,14 +28,7 @@ class DocumentController(private val cvService: CvService) {
     }
 
     private fun makeUrlResponse(file: MimeTypedResource?): ResponseEntity<ByteArray> {
-        if (file?.resource == null) {
-            return ResponseEntity.badRequest().build()
-        }
-        val headers = HttpHeaders()
-        headers.setContentDispositionFormData(file.filename, file.filename)
-        file.mimeType?.let { headers.set(HttpHeaders.CONTENT_TYPE, file.mimeType) }
-        headers.cacheControl = "must-revalidate, post-check=0, pre-check=0"
-        return ResponseEntity(file.resource, headers, HttpStatus.OK)
+        return ControllerUtil.buildFileResponse(file)
     }
 
     @ExceptionHandler

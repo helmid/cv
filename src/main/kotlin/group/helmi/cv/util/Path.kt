@@ -9,10 +9,7 @@ object Path {
     }
 
     object CvWebsite {
-        /**
-         *  Must match with "target" in contact.json and must be mapped in controller
-         */
-        const val formAction = "/"
         const val errorPath = "/error"
+        const val profileLocation = "/profile"
     }
 }
