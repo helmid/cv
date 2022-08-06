@@ -11,7 +11,6 @@ import group.helmi.cv.model.templates.tex.cv1.Cv
 import group.helmi.cv.util.CvPathUtil
 import group.helmi.cv.util.FileUtil
 import group.helmi.cv.util.ProcessUtil
-import group.helmi.cv.util.extension.concatAndCamelCase
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -20,15 +19,13 @@ import kotlin.io.path.createDirectories
 
 @Service
 class CvServiceImpl: CvService {
-    private var publicFolder: String = ""
 
     init {
         CvPathUtil.createBaseOutputPathIfNotExists()
     }
 
-    override fun buildPublicProfile() {
+    override fun buildPublicProfile(publicFolder: String) {
         val rawCv = jacksonObjectMapper().readValue<CvDTO>(CvPathUtil.getCvJson())
-        publicFolder = "dhe_${UUID.randomUUID()}".concatAndCamelCase()
         createAndCompileTex(publicFolder, rawCv)
     }
 
