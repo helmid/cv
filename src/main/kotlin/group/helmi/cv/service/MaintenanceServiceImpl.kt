@@ -31,7 +31,6 @@ class MaintenanceServiceImpl(@Autowired private val publicFolder: PublicFolder) 
     @Scheduled(cron = SPRING_CRON_AT_ZERO_HRS, zone = UTC)
     override fun updatePublicFolder() {
         val result = publicFolder.deletePublicFolders()
-        publicFolder.generatePublicFolders()
         logger.info(result)
     }
 }
