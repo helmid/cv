@@ -10,6 +10,7 @@ object CvPathUtil {
     private const val baseDataPathName = "data"
     private const val cvFilenameKey = "cv_source"
     private const val contactFilenameKey = "contact_form_source"
+    private const val contactFormMailFilename = "contact_form_mail.json"
     private const val imprintFilenameKey = "imprint_source"
     private const val gdprFilenameKey = "gdpr_source"
     const val profilePicture = "cvProfilePicture"
@@ -27,6 +28,7 @@ object CvPathUtil {
     fun getCvJson(): String = getDataFile(Translator.toLocale(cvFilenameKey))
 
     fun getContactJson(): String = getDataFile(Translator.toLocale(contactFilenameKey))
+    fun getContactFormMailJson(): String = getDataFile(contactFormMailFilename)
 
     fun getImprintJson(): String = getDataFile(Translator.toLocale(imprintFilenameKey))
 

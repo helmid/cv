@@ -8,6 +8,7 @@ object Dependency {
         val web = "org.springframework.boot:spring-boot-starter-web"
         val security = "org.springframework.boot:spring-boot-starter-security"
         val thymeleaf = "org.springframework.boot:spring-boot-starter-thymeleaf"
+        val mail = "org.springframework.boot:spring-boot-starter-mail"
     }
 
     val lombok = "org.projectlombok:lombok"

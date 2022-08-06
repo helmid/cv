@@ -27,6 +27,7 @@ dependencies {
 	implementation(Dependency.Spring.web)
 	implementation(Dependency.Spring.security)
 	implementation(Dependency.Spring.thymeleaf)
+	implementation(Dependency.Spring.mail)
 	implementation(Dependency.jackson)
 	implementation(Dependency.Kotlin.reflect)
 	implementation(Dependency.Kotlin.jdk)
