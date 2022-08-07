@@ -28,5 +28,5 @@
   - [spring initializr](https://start.spring.io/)
   - Spring Security
   - Thymeleaf
-- [Lombok](https://projectlombok.org/)
+  - javamail
 - Jackson
