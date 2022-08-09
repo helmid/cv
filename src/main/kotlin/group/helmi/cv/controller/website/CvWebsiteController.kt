@@ -40,8 +40,8 @@ class CvWebsiteController(
     @ResponseBody
     fun submitForm(@ModelAttribute contactRequestDTO: ContactRequestDTO): String {
         logger.info(LoggingUtil.stringify("submitForm", contactRequestDTO))
-        mailService.sendContactRequestMail(contactRequestDTO)
-        return PopupBuilder.makeAlert(true)
+        val success = mailService.sendContactRequestMail(contactRequestDTO)
+        return PopupBuilder.makeAlert(success)
     }
 
     @GetMapping(Path.CvWebsite.profileLocation)
