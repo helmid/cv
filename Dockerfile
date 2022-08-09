@@ -34,4 +34,5 @@ ADD data/ data/
 
 # Expose port and set entrypoint
 EXPOSE 8443
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
