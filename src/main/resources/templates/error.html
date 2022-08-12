@@ -38,10 +38,4 @@
 </div>
 <div th:replace="fragments/footer :: footer"></div>
 <script th:replace="fragments/scripts :: scripts"></script>
-<script>
-    window.addEventListener('load', function () {
-        document.getElementById('insert_1').innerText = xor(atob("[[${imprintDTO.phone}]]"), atob("[[${imprintKey}]]"));
-        document.getElementById('insert_2').innerText = xor(atob("[[${imprintDTO.email}]]"), atob("[[${imprintKey}]]"));
-    });
-</script>
 </body>

@@ -5,15 +5,20 @@ $("#contact-form-group").submit(function (e) {
 });
 
 function setLanguage(value) {
-    if ($.cookie('lang') == null) {
-        let cookie = "lang=" + value + "; expires=0; path=/"
-        document.cookie = cookie;
+    console.log(getCookie("lang"));
+    if (getCookie("lang") == null) {
+        document.cookie = "lang=" + value + "; expires=0; path=/";
         document.location.reload();
     }
 }
 
-let lang = $('html')[0].lang;
-setLanguage(lang);
+setLanguage($('html')[0].lang);
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
 
 $(document).ready(function () {
     $("#lang-toggle").click(function (e) {
