@@ -12,9 +12,10 @@ function setLanguage(value) {
     }
 }
 
+let lang = $('html')[0].lang;
+setLanguage(lang);
+
 $(document).ready(function () {
-    let lang = $('html')[0].lang;
-    setLanguage(lang);
     $("#lang-toggle").click(function (e) {
         e.preventDefault();
         let selectedOption = $(this).attr("href")
