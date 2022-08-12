@@ -4,13 +4,22 @@ $("#contact-form-group").submit(function (e) {
     submitForm($(this));
 });
 
+function setLanguage(value) {
+    if ($.cookie('lang') == null) {
+        let cookie = "lang=" + value + "; expires=0; path=/"
+        document.cookie = cookie;
+        document.location.reload();
+    }
+}
+
 $(document).ready(function () {
+    let lang = $('html')[0].lang;
+    setLanguage(lang);
     $("#lang-toggle").click(function (e) {
         e.preventDefault();
         let selectedOption = $(this).attr("href")
         if (selectedOption !== '') {
-            document.cookie = "lang=" + selectedOption + "; expires=0; path=/";
-            document.location.reload();
+            setLanguage(selectedOption);
         }
     });
 });
