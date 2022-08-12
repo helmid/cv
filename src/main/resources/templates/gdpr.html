@@ -33,7 +33,8 @@
                                 </span>
                                 <span th:utext="${gdprDTO.address.postalCode}">postal code</span>&nbsp;
                                 <span th:utext="${gdprDTO.address.city}">city</span><br>
-                                <span th:utext="${gdprDTO.address.country}">country</span>
+                                <span th:utext="${gdprDTO.address.country}">country</span><br>
+                                <span th:if="${gdprDTO.address.notice != null}" th:utext="${gdprDTO.address.notice}">notice</span>
                             </p>
                             <p th:utext="#{privacy_legal_responsible_position_info}">
                                 privacy_legal_responsible_position_info</p>

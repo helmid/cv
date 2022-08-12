@@ -31,7 +31,9 @@
                                 </span>
                                 <span th:utext="${imprintDTO.address.postalCode}">postal code</span>&nbsp;
                                 <span th:utext="${imprintDTO.address.city}">city</span><br>
-                                <span th:utext="${imprintDTO.address.country}">country</span>
+                                <span th:utext="${imprintDTO.address.country}">country</span><br>
+                                <span th:if="${imprintDTO.address.notice != null}"
+                                      th:utext="${imprintDTO.address.notice}">notice</span>
                             </p>
                             <h6 th:utext="#{imprint_contact_title}">imprint_contact_title</h6>
                             <p>

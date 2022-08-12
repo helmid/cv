@@ -6,5 +6,6 @@ data class AddressDTO(
     val postalCode: String,
     val city: String,
     val country: String,
-    val co: String?
+    val co: String?,
+    val notice: String?
 )
