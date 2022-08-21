@@ -27,7 +27,7 @@ class CvServiceImpl(private val publicFolder: PublicFolder) : CvService {
     }
 
     override fun getPublicProfile(locale: Locale): MimeTypedResource? {
-        val cvDTO = jacksonObjectMapper().readValue<CvDTO>(CvPathUtil.getCvJson())
+        val cvDTO = jacksonObjectMapper().readValue<CvDTO>(CvPathUtil.getCvJsonForceLocale(locale))
         val folder = publicFolder.getPublicFolder(locale)
         val cvFilename = makeFilename(cvDTO, false)
         val path = CvPathUtil.getOutputPath(components = listOf(folder, "$cvFilename.${CvPathUtil.pdfFileType}"))

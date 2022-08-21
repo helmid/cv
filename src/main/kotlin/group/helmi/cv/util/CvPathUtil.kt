@@ -25,6 +25,7 @@ object CvPathUtil {
         return FileUtil.getPath(baseOutputPathName, components)
     }
 
+    fun getCvJsonForceLocale(locale: Locale): String = getDataFile(Translator.toForcedLocale(locale, cvFilenameKey))
     fun getCvJson(): String = getDataFile(Translator.toLocale(cvFilenameKey))
 
     fun getContactJson(): String = getDataFile(Translator.toLocale(contactFilenameKey))
