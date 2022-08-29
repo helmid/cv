@@ -32,7 +32,7 @@ class CustomLocaleResolver : CookieLocaleResolver(), WebMvcConfigurer {
     }
 
     override fun resolveLocale(request: HttpServletRequest): Locale {
-        val lang = request.cookies?.firstOrNull { it.name == cookieName }?.value
+        val lang = request.cookies?.firstOrNull { it.name == cookieName }?.value ?: request.locale.language
         return if (lang.isNullOrEmpty()) {
             Locale.getDefault()
         } else {

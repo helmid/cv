@@ -5,14 +5,11 @@ $("#contact-form-group").submit(function (e) {
 });
 
 function setLanguage(value) {
-    console.log(getCookie("lang"));
     if (getCookie("lang") !== value) {
         document.cookie = "lang=" + value + "; expires=0; path=/";
         document.location.reload();
     }
 }
-
-setLanguage($('html')[0].lang);
 
 function getCookie(name) {
     const value = `; ${document.cookie}`;
