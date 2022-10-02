@@ -20,7 +20,7 @@ abstract class TemplateCvMapperImpl : TemplateCvMapper {
     private fun formatContact(contactItemDTO: ContactItemDTO): ContactItemDTO {
         return ContactItemDTO(
             icon = formatFontAwesome(contactItemDTO.icon),
-            text = contactItemDTO.text,
+            text = formatString(contactItemDTO.text),
             href = contactItemDTO.href,
             disclose = contactItemDTO.disclose
         )

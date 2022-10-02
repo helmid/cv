@@ -25,5 +25,12 @@ object TexCvMapper : TemplateCvMapperImpl() {
 
     private fun texifySpecialCharacters(string: String): String {
         return string.replace("&", "\\&")
+            .replace("ä", "{\\\"a}")
+            .replace("Ä", "{\\\"A}")
+            .replace("ö", "{\\\"o}")
+            .replace("Ö", "{\\\"O}")
+            .replace("ü", "{\\\"u}")
+            .replace("Ü", "{\\\"U}")
+            .replace("ß", "{\\ss}")
     }
 }
