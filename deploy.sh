@@ -29,6 +29,6 @@ fi
 if [ -n "$username" ] && [ -n "$repository" ] && [ -n "$version" ]
 then
   docker pull $username/$repository:$version
-  docker container kill $(docker container ls -q)
+  docker container kill "$(docker container ls -q)"
   docker run -d -p 443:8443 -p 80:8080 $username/$repository:$version
 fi
