@@ -28,13 +28,13 @@ object SectionAbout {
             <div class="row">
               <div class="col-lg-6 col-md-12">
                 <div class="card-body">
-                  <div class="h4 mt-0 title">$title</div>
+                  <h4 class="h4 mt-0 title">$title</h4>
                   <p>${item.text}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-md-12">
                 <div class="card-body">
-                  <div class="h4 mt-0 title">${Translator.toLocale("about_basic_information")}</div>
+                  <h4 class="h4 mt-0 title">${Translator.toLocale("about_basic_information")}</h4>
                   <div class="row mt-3">
                     <div class="col-sm-4"><strong class="text-uppercase">${Translator.toLocale("about_country")}:</strong></div>
                     <div class="col-sm-8">${item.country}</div>

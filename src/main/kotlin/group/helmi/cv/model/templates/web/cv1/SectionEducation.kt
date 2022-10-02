@@ -14,7 +14,7 @@ object SectionEducation {
         return """
         <div class="section" id="${title.toKebapCase()}">
             <div class="container cc-experience">
-                <div class="h4 text-center mb-4 title">$title</div>
+                <h4 class="h4 text-center mb-4 title">$title</h4>
                     $cards
                     $button
             </div>
@@ -33,12 +33,12 @@ object SectionEducation {
                         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
                             <div class="card-body cc-experience-header">
                                 <p>$date</p>
-                                <div class="h5">${item.facility}</div>
+                                <h5 class="h5">${item.facility}</h5>
                             </div>
                         </div>
                         <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
                             <div class="card-body">
-                                <div class="h5">${item.title}</div>
+                                <h5 class="h5">${item.title}</h5>
                                 $innerContent
                             </div>
                         </div>

@@ -5,6 +5,7 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="" name="keywords" th:content="${#strings.listJoin(cvWebsiteDTO.meta.keywords, ', ')}">
+    <meta content="" name="title" th:content="${cvWebsiteDTO.meta.title}">
     <meta content="" name="description" th:content="${cvWebsiteDTO.meta.description}">
     <meta content="" property="og:site_name" th:content="${cvWebsiteDTO.meta.openGraph.name}">
     <meta content="" property="og:url" th:content="${cvWebsiteDTO.meta.openGraph.url}">
@@ -52,9 +53,9 @@
                         <div class="cc-profile-image">
                             <a href="#"><img alt="Image" th:src="${cvWebsiteDTO.cvProfilePicture}"/></a>
                         </div>
-                        <div class="h2 title"
-                             th:utext="${cvWebsiteDTO.cv.firstName} + '&nbsp;' + ${cvWebsiteDTO.cv.lastName}">Name
-                        </div>
+                        <h1 class="h2 title"
+                            th:utext="${cvWebsiteDTO.cv.firstName} + '&nbsp;' + ${cvWebsiteDTO.cv.lastName}">Name
+                        </h1>
                         <p class="category text-white" th:utext="${cvWebsiteDTO.cv.jobTitle}">Job Description</p><a
                             class="btn btn-primary smooth-scroll mr-2" data-aos="zoom-in"
                             data-aos-anchor="data-aos-anchor" href=""

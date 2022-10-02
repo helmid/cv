@@ -13,7 +13,7 @@ object SectionHistory {
         return """
         <div class="section" id="${title.toKebapCase()}">
             <div class="container cc-experience">
-                <div class="h4 text-center mb-4 title">$title</div>
+                <h4 class="h4 text-center mb-4 title">$title</h4>
                     $cards
                     $button
             </div>
@@ -29,12 +29,12 @@ object SectionHistory {
                     <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
                         <div class="card-body cc-experience-header">
                             <p>${item.getDate("-")}</p>
-                            <div class="h5">${item.customer}</div>
+                            <h5 class="h5">${item.customer}</h5>
                         </div>
                     </div>
                     <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
                         <div class="card-body">
-                            <div class="h5">${item.jobTitle}</div>
+                            <h5 class="h5">${item.jobTitle}</h5>
                             <p>${item.description}</p>
                             <p class="hg-skills-used">$skills</p>
                         </div>
