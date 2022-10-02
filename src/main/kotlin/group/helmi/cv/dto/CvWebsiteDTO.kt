@@ -10,7 +10,7 @@ data class CvWebsiteDTO(
 )
 
 data class CvWebsiteMetaDTO(
-    val keywords: String,
+    val keywords: List<String>,
     val description: String,
     val title: String,
     val openGraph: CvWebsiteOpenGraphDTO

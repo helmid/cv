@@ -13,6 +13,7 @@ object CvPathUtil {
     private const val contactFormMailFilename = "contact_form_mail.json"
     private const val imprintFilenameKey = "imprint_source"
     private const val gdprFilenameKey = "gdpr_source"
+    private const val websiteMetadataKey = "website_metadata"
     const val profilePicture = "cvProfilePicture"
 
     val baseOutputPath = getOutputPath()
@@ -34,6 +35,8 @@ object CvPathUtil {
     fun getImprintJson(): String = getDataFile(Translator.toLocale(imprintFilenameKey))
 
     fun getGdprJson(): String = getDataFile(Translator.toLocale(gdprFilenameKey))
+
+    fun getWebsiteMetadataJson(): String = getDataFile(Translator.toLocale(websiteMetadataKey))
 
     fun getPngProfilePicture(): Path = FileUtil.getPath(baseDataPathName, listOf("$profilePicture.$pngFileType"))
 

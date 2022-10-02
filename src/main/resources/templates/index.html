@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta content="" name="keywords" th:content="${cvWebsiteDTO.meta.keywords}">
+    <meta content="" name="keywords" th:content="${#strings.listJoin(cvWebsiteDTO.meta.keywords, ', ')}">
     <meta content="" name="description" th:content="${cvWebsiteDTO.meta.description}">
     <meta content="" property="og:site_name" th:content="${cvWebsiteDTO.meta.openGraph.name}">
     <meta content="" property="og:url" th:content="${cvWebsiteDTO.meta.openGraph.url}">

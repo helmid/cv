@@ -1,38 +1,31 @@
 package group.helmi.cv.mapper
 
-import group.helmi.cv.dto.*
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder
+import group.helmi.cv.dto.AboutEntryDTO
+import group.helmi.cv.dto.CvDTO
+import group.helmi.cv.dto.CvWebsiteMetaDTO
+import group.helmi.cv.dto.HistoryEntryDTO
 
 object CvWebsiteMetaDTOMapper {
-    fun map(cv: CvDTO): CvWebsiteMetaDTO {
-        val name = "${cv.firstName} ${cv.lastName}, ${cv.jobTitle}"
-        val url = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString()
-        val openGraphDTO = CvWebsiteOpenGraphDTO(
-            name = name,
-            url = url,
-            type = "website",
-            title = name
-        )
-        return CvWebsiteMetaDTO(
-            keywords = makeKeyWords(cv),
-            description = name,
-            title = name,
-            openGraph = openGraphDTO
+    fun map(metadata: CvWebsiteMetaDTO, cv: CvDTO): CvWebsiteMetaDTO {
+        return metadata.copy(
+            keywords = makeKeyWords(metadata, cv)
         )
     }
 
-    private fun makeKeyWords(cv: CvDTO): String {
-        val result: MutableList<String> = mutableListOf()
+    private fun makeKeyWords(metadata: CvWebsiteMetaDTO, cv: CvDTO): List<String> {
+        val skills: MutableList<String> = mutableListOf()
         cv.sections.forEach { section ->
             section.entries.forEach { entry ->
                 if (entry is AboutEntryDTO) {
-                    entry.barchart.forEach { chartItem -> result.add(chartItem.title) }
-                    entry.bubbles?.let { bubble -> bubble.forEach { chartItem -> result.add(chartItem.title) } }
+                    entry.barchart.forEach { chartItem -> skills.add(chartItem.title) }
+                    entry.bubbles?.let { bubble -> bubble.forEach { chartItem -> skills.add(chartItem.title) } }
                 } else if (entry is HistoryEntryDTO) {
-                    result.addAll(entry.skills)
+                    skills.addAll(entry.skills)
                 }
             }
         }
-        return result.distinct().joinToString(", ")
+        val keywords: MutableList<String> = metadata.keywords.toMutableList()
+        keywords.addAll(skills.distinct())
+        return keywords
     }
 }

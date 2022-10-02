@@ -4,6 +4,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import group.helmi.cv.dto.CvDTO
 import group.helmi.cv.dto.CvWebsiteDTO
+import group.helmi.cv.dto.CvWebsiteMetaDTO
 import group.helmi.cv.dto.HtmlFormDTO
 import group.helmi.cv.mapper.CvWebsiteMetaDTOMapper
 import group.helmi.cv.mapper.HtmlCvMapper
@@ -20,9 +21,10 @@ class CvWebsiteServiceImpl : CvWebsiteService {
     override fun loadData(): CvWebsiteDTO {
         val cvPermission = CvPermission(contactDisclosureAllowed = false)
         val rawCv = jacksonObjectMapper().readValue<CvDTO>(CvPathUtil.getCvJson())
+        val metadata = jacksonObjectMapper().readValue<CvWebsiteMetaDTO>(CvPathUtil.getWebsiteMetadataJson())
         val cv = HtmlCvMapper.formatCv(rawCv, cvPermission)
         return CvWebsiteDTO(
-            meta = CvWebsiteMetaDTOMapper.map(cv),
+            meta = CvWebsiteMetaDTOMapper.map(metadata, cv),
             cv = cv,
             contact = loadContact(),
             formattedSections = Section.make(cv.sections),
