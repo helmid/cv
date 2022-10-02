@@ -5,12 +5,12 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="" name="keywords" th:content="${#strings.listJoin(cvWebsiteDTO.meta.keywords, ', ')}">
-    <meta content="" name="title" th:content="${cvWebsiteDTO.meta.title}">
     <meta content="" name="description" th:content="${cvWebsiteDTO.meta.description}">
     <meta content="" property="og:site_name" th:content="${cvWebsiteDTO.meta.openGraph.name}">
     <meta content="" property="og:url" th:content="${cvWebsiteDTO.meta.openGraph.url}">
     <meta content="" property="og:type" th:content="${cvWebsiteDTO.meta.openGraph.type}">
     <meta content="" property="og:title" th:content="${cvWebsiteDTO.meta.openGraph.title}">
+    <title th:content="${cvWebsiteDTO.meta.title}">Title</title>
     <script th:replace="fragments/head :: head"></script>
 </head>
 
