@@ -6,6 +6,7 @@ version=""
 
 while getopts u:r:v: flag
 do
+    # shellcheck disable=SC2220
     case "${flag}" in
         u) username=${OPTARG};;
         r) repository=${OPTARG};;
@@ -13,22 +14,22 @@ do
     esac
 done
 
-if [ -z $username ]
+if [ -z "$username" ]
 then
   echo "Username '-u value' is mandatory."
 fi
-if [ -z $repository ]
+if [ -z "$repository" ]
 then
   echo "Repository '-r value' is mandatory."
 fi
-if [ -z $version ]
+if [ -z "$version" ]
 then
   echo "Version '-v value' is mandatory."
 fi
 
 if [ -n "$username" ] && [ -n "$repository" ] && [ -n "$version" ]
 then
-  docker pull $username/$repository:$version
+  docker pull "$username/$repository:$version"
   docker container kill "$(docker container ls -q)"
-  docker run -d -p 443:8443 -p 80:8080 $username/$repository:$version
+  docker run -d -p 443:8443 -p 80:8080 "$username/$repository:$version"
 fi
