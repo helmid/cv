@@ -32,7 +32,7 @@ COPY --chown=$USER:$GROUP payload/cert payload/cert
 # Copy cv data
 COPY --chown=$USER:$GROUP data/ data/
 
-# Set working directory and copy app
+# Copy app
 COPY --chown=$USER:$GROUP build/libs/*.jar app.jar
 
 RUN chown -R $USER $TEXLIVE_HOME
