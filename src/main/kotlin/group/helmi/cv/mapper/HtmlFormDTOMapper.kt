@@ -8,15 +8,20 @@ import group.helmi.cv.util.extension.toKebapCase
 
 object HtmlFormDTOMapper {
     fun formatForm(htmlFormDTO: HtmlFormDTO, formId: String): HtmlFormDTO {
-        return HtmlFormDTO(
-            id = formId,
-            target = FormTargetDTO(
-                id = htmlFormDTO.target.id,
-                action = htmlFormDTO.target.action,
-            ),
-            submit = StringMapperWeb.formatString(htmlFormDTO.submit),
-            input = htmlFormDTO.input.map { formatForm(it) }
-        )
+        return if (htmlFormDTO.showContact) {
+            HtmlFormDTO.initial
+        } else {
+            HtmlFormDTO(
+                id = formId,
+                showContact = htmlFormDTO.showContact,
+                target = FormTargetDTO(
+                    id = htmlFormDTO.target.id,
+                    action = htmlFormDTO.target.action,
+                ),
+                submit = StringMapperWeb.formatString(htmlFormDTO.submit),
+                input = htmlFormDTO.input.map { formatForm(it) }
+            )
+        }
     }
 
 

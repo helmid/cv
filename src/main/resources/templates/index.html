@@ -60,7 +60,8 @@
                         <p class="category text-white" th:utext="${cvWebsiteDTO.cv.jobTitle}">Job Description</p><a
                             class="btn btn-primary smooth-scroll mr-2" data-aos="zoom-in"
                             data-aos-anchor="data-aos-anchor" href=""
-                            th:href="'#' + ${cvWebsiteDTO.contact.target.id}" th:utext="#{hire_me}">Hire Me</a>
+                            th:href="'#' + ${cvWebsiteDTO.contact.target.id}" th:if="${cvWebsiteDTO.getContact().getShowContact()}"
+                            th:utext="#{hire_me}">Hire Me</a>
                         <a class="btn btn-primary" data-aos="zoom-in" data-aos-anchor="data-aos-anchor"
                            href="/profile"
                            target="_blank" th:utext="#{request_cv}">Request CV</a>
@@ -84,7 +85,7 @@
     <th:block th:each="section : ${cvWebsiteDTO.formattedSections}">
         <div th:remove="tag" th:utext="${section}"></div>
     </th:block>
-    <div class="section" id="contact-form">
+    <div class="section" id="contact-form" th:if="${cvWebsiteDTO.getContact().getShowContact()}">
         <div class="container">
             <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                 <div class="card-body">
