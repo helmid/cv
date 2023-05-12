@@ -1,23 +1,23 @@
 object Dependency {
     object Kotlin {
-        val reflect = "org.jetbrains.kotlin:kotlin-reflect"
-        val jdk = "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+        const val reflect = "org.jetbrains.kotlin:kotlin-reflect"
+        const val jdk = "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     }
 
     object Spring {
-        val web = "org.springframework.boot:spring-boot-starter-web"
-        val security = "org.springframework.boot:spring-boot-starter-security"
-        val thymeleaf = "org.springframework.boot:spring-boot-starter-thymeleaf"
-        val mail = "org.springframework.boot:spring-boot-starter-mail"
+        const val web = "org.springframework.boot:spring-boot-starter-web"
+        const val security = "org.springframework.boot:spring-boot-starter-security"
+        const val thymeleaf = "org.springframework.boot:spring-boot-starter-thymeleaf"
+        const val mail = "org.springframework.boot:spring-boot-starter-mail"
     }
 
-    val lombok = "org.projectlombok:lombok"
-    val jackson = "com.fasterxml.jackson.module:jackson-module-kotlin"
+    const val lombok = "org.projectlombok:lombok"
+    const val jackson = "com.fasterxml.jackson.module:jackson-module-kotlin"
 
     object Test {
         object Spring {
-            val web = "org.springframework.boot:spring-boot-starter-test"
-            val security = "org.springframework.security:spring-security-test"
+            const val web = "org.springframework.boot:spring-boot-starter-test"
+            const val security = "org.springframework.security:spring-security-test"
         }
     }
 }

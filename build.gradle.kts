@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	id(Plugin.Name.Spring.boot) version Version.Plugin.Spring.boot
-	id(Plugin.Name.Spring.dependecyManagement) version Version.Plugin.Spring.dependecyManagement
+	id(Plugin.Name.Spring.dependecyManagement) version Version.Plugin.Spring.dependencyManagement
 	kotlin(Plugin.Name.Kotlin.jvm) version Version.Plugin.Kotlin.jvm
 	kotlin(Plugin.Name.Kotlin.spring) version Version.Plugin.Kotlin.spring
 	kotlin(Plugin.Name.Kotlin.serialization) version Version.Plugin.Kotlin.serialization
