@@ -11,6 +11,7 @@ object SectionHistory {
                 \begin{entrylist}
                 	$list
                 \end{entrylist}
+                \pagebreak
             """.trimIndent()
     }
 

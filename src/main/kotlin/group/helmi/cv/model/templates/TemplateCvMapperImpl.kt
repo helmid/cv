@@ -46,14 +46,22 @@ abstract class TemplateCvMapperImpl : TemplateCvMapper {
     private fun formatAbout(aboutEntryDTO: AboutEntryDTO): EntryDTO {
         return AboutEntryDTO(
             text = formatString(aboutEntryDTO.text),
-            barchart = aboutEntryDTO.barchart.map { formatChartItem(it) },
-            bubbles = aboutEntryDTO.bubbles?.map { formatChartItem(it) },
+            chartSection = aboutEntryDTO.chartSection?.let { formatSkills(it) },
             country = formatString(aboutEntryDTO.country),
             operatingRadius = formatString(aboutEntryDTO.operatingRadius),
-            workingMode = formatString(aboutEntryDTO.workingMode),
-            bubbleMaxSkill = aboutEntryDTO.bubbleMaxSkill,
-            bubblesTitle = formatString(aboutEntryDTO.bubblesTitle),
-            barTitle = formatString(aboutEntryDTO.barTitle)
+            workingMode = formatString(aboutEntryDTO.workingMode)
+        )
+    }
+
+    private fun formatSkills(chartSectionDTO: ChartSectionDTO): ChartSectionDTO {
+        return ChartSectionDTO(
+            title = formatString(chartSectionDTO.title),
+            text = formatString(chartSectionDTO.text),
+            barchart = chartSectionDTO.barchart.map { formatChartItem(it) },
+            bubbles = chartSectionDTO.bubbles?.map { formatChartItem(it) },
+            bubbleMaxSkill = chartSectionDTO.bubbleMaxSkill,
+            bubblesTitle = formatString(chartSectionDTO.bubblesTitle),
+            barTitle = formatString(chartSectionDTO.barTitle)
         )
     }
 

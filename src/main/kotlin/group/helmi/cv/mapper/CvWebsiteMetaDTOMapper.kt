@@ -17,8 +17,10 @@ object CvWebsiteMetaDTOMapper {
         cv.sections.forEach { section ->
             section.entries.forEach { entry ->
                 if (entry is AboutEntryDTO) {
-                    entry.barchart.forEach { chartItem -> skills.add(chartItem.title) }
-                    entry.bubbles?.let { bubble -> bubble.forEach { chartItem -> skills.add(chartItem.title) } }
+                    entry.chartSection?.let { chartSection ->
+                        chartSection.barchart.forEach { chartItem -> skills.add(chartItem.title) }
+                        chartSection.bubbles?.let { bubble -> bubble.forEach { chartItem -> skills.add(chartItem.title) } }
+                    }
                 } else if (entry is HistoryEntryDTO) {
                     skills.addAll(entry.skills)
                 }

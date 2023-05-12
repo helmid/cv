@@ -2,6 +2,7 @@ package group.helmi.cv.model.templates.web.cv1
 
 import group.helmi.cv.config.localization.Translator
 import group.helmi.cv.dto.AboutEntryDTO
+import group.helmi.cv.dto.ChartSectionDTO
 import group.helmi.cv.util.extension.toKebapCase
 import org.slf4j.LoggerFactory
 
@@ -14,10 +15,19 @@ object SectionAbout {
         }
         val item = items.first()
         val about = makeAboutSection(title, item)
+        val chartSection = item.chartSection?.let { makeSkillsSection(it) } ?: ""
+        return "$about\n$chartSection"
+    }
+
+    private fun makeSkillsSection(item: ChartSectionDTO): String {
         val barChart = LineChart.make(item.barTitle, item.barchart)
         val bubbleChart = item.bubbles?.map { it.bubbleToLineChart(item.bubbleMaxSkill) }
             ?.let { LineChart.make(item.bubblesTitle, it) } ?: ""
-        return "$about\n$barChart\n$bubbleChart"
+        return """
+            \cvsect{${item.title}}
+            $barChart
+            $bubbleChart
+        """.trimIndent()
     }
 
     private fun makeAboutSection(title: String, item: AboutEntryDTO): String {

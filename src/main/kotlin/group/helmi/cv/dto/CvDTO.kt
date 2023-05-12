@@ -39,17 +39,10 @@ abstract class EntryDTO
 
 data class AboutEntryDTO(
     val text: String,
-    val barchart: List<ChartItemDTO>,
-    val bubbles: List<ChartItemDTO>?,
+    val chartSection: ChartSectionDTO?,
     val country: String,
     val operatingRadius: String,
-    val workingMode: String,
-    /**
-     * Website only attributes
-     */
-    val bubbleMaxSkill: Double = 10.0,
-    val bubblesTitle: String = "",
-    val barTitle: String = ""
+    val workingMode: String
 ): EntryDTO()
 
 data class HistoryEntryDTO(
@@ -75,12 +68,25 @@ data class EducationEntryDTO(
     val title: String,
     val facility: String,
     val content: LinkableTextDTO
-): EntryDTO()
+) : EntryDTO()
 
-data class ColsEntryDTO (
+data class ColsEntryDTO(
     val title: String,
     val barchart: List<ChartItemDTO>?
-): EntryDTO()
+) : EntryDTO()
+
+data class ChartSectionDTO(
+    val title: String,
+    val text: String,
+    val barchart: List<ChartItemDTO>,
+    val bubbles: List<ChartItemDTO>?,
+    val bubbleMaxSkill: Double = 10.0,
+    /**
+     * Website only attributes
+     */
+    val bubblesTitle: String = "",
+    val barTitle: String = ""
+)
 
 data class ChartItemDTO(
     val title: String,
