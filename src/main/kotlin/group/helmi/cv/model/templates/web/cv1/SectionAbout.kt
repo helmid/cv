@@ -24,7 +24,6 @@ object SectionAbout {
         val bubbleChart = item.bubbles?.map { it.bubbleToLineChart(item.bubbleMaxSkill) }
             ?.let { LineChart.make(item.bubblesTitle, it) } ?: ""
         return """
-            \cvsect{${item.title}}
             $barChart
             $bubbleChart
         """.trimIndent()
