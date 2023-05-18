@@ -9,7 +9,7 @@ object SectionCols {
         if (items.isEmpty()) return ""
         val titleText = if (title.isEmpty()) "" else "\\cvsect{$title}"
         val width: Double = 1.0 / items.size
-        val minipages = items.map { makeCol(it, width) }.joinToString("\n")
+        val minipages = items.joinToString("\n") { makeCol(it, width) }
         return """
                 $titleText
                 
