@@ -10,6 +10,7 @@ object SectionAbout {
         val aboutMe = items.map { makeAboutMe(it) }.joinToString("\n")
         return """
                 \cvsect{$title}
+                \vspace{-\baselineskip}
                 $aboutMe
             """.trimIndent()
     }
