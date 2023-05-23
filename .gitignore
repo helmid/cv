@@ -43,4 +43,4 @@ payload/cert/prod/
 ### Project ###
 output/
 data/
-/data/
+data
